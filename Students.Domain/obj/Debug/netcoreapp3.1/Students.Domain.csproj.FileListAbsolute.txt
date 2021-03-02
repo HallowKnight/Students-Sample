@@ -1,0 +1,17 @@
+D:\Developement\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.deps.json
+D:\Developement\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.dll
+D:\Developement\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.pdb
+D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csprojAssemblyReference.cache
+D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfoInputs.cache
+D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfo.cs
+D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csproj.CoreCompileInputs.cache
+D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.dll
+D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.pdb
+C:\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.deps.json
+C:\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.dll
+C:\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.pdb
+C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csprojAssemblyReference.cache
+C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfoInputs.cache
+C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfo.cs
+C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.dll
+C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.pdb

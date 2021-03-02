@@ -1,0 +1,14 @@
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Application.deps.json
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Application.dll
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Application.pdb
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Domain.dll
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Infrastructure.dll
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Domain.pdb
+D:\Developement\Projects\Students\Students.Application\bin\Debug\netcoreapp2.1\Students.Infrastructure.pdb
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.csprojAssemblyReference.cache
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.AssemblyInfoInputs.cache
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.AssemblyInfo.cs
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.csproj.CoreCompileInputs.cache
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.csproj.CopyComplete
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.dll
+D:\Developement\Projects\Students\Students.Application\obj\Debug\netcoreapp2.1\Students.Application.pdb

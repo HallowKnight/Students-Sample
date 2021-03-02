@@ -1,0 +1,14 @@
+﻿ public async Task<StudentLessonsDTO> GetStudentLessonsByStudentIdAsync(int studentId)
+        {
+            Student student = await _context.Students.FirstOrDefaultAsync(s => s.StudentId == studentId);
+            
+            StudentLessonsDTO studentLessons = new StudentLessonsDTO()
+            {
+                StudentId = studentId,
+                StudentName = student.StudentFUllName, 
+                Lessons = _context.Lessons.Include(l=>l.StudentLessons).ThenInclude(l=>l.Lesson).ToList()
+                
+            };
+
+            return studentLessons;
+        }

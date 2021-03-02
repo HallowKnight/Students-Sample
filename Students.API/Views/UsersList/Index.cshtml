@@ -1,0 +1,58 @@
+﻿@using Students.Application.Users.Queries.GetAllUsers
+@model List<Students.Application.Users.Queries.GetAllUsers.GetAllUsersDto>
+
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    </head>
+    <body>
+    
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                  {
+                      <tr>
+                          <td>@user.UserId</td>
+                          <td>@user.UserName</td>
+                      </tr>
+                  }
+            </tbody>
+        </table>
+    
+        <script src="/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/js/lib/signalr.js"></script>
+    
+        <script type="text/javascript">
+       
+                let connection =new signalR.HubConnectionBuilder().withUrl("/usersListHub").build();
+                async function start() {
+                    try {
+                        await connection.start();
+                        console.log("SignalR Connected.");
+                    } catch (err) {
+                        console.log(err);
+                        setTimeout(start, 5000);
+                    }
+                }     
+           
+            connection.onclose(start);
+            
+            // Start the connection.
+            start();
+            
+        </script>
+    </body>
+</html>
+
