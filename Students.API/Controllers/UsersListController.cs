@@ -23,8 +23,9 @@ namespace Students.Presentation.Controllers
         
         public async Task<IActionResult> Index()
         {
-            List<GetAllUsersDto> users = await _mediator.Send(new GetAllUsersQuery());
-            return await Task.Run(()=>View(users));
+            var result = await _mediator.Send(new GetAllUsersQuery());
+            await _hub.Clients.All.SendAsync("GetNewUsersList",result);
+            return View(result);
         }
     }
 }

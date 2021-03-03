@@ -9,6 +9,9 @@ namespace Students.Domain.Common
         
     }
 
-    public abstract class DomainEvent 
-    { }
+    public class DomainEvent
+    {
+        
+        public int Id { get; set; }
+    }
 }

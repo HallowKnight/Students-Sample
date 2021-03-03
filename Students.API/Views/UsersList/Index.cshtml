@@ -1,6 +1,5 @@
 ﻿@using Students.Application.Users.Queries.GetAllUsers
-@model List<Students.Application.Users.Queries.GetAllUsers.GetAllUsersDto>
-
+@model List<GetAllUsersDto>
 
 
 <html>
@@ -13,45 +12,69 @@
     </head>
     <body>
     
-        <table class="table table-sm table-bordered">
+        <table class="table table-sm table-bordered" id="usersList">
             <thead>
                 <tr>
                     <th>User ID</th>
                     <th>User Name</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var user in Model)
-                  {
-                      <tr>
-                          <td>@user.UserId</td>
-                          <td>@user.UserName</td>
-                      </tr>
-                  }
+            <tbody id="tableBody">
+                @foreach (GetAllUsersDto user in Model)
+                {
+                    <tr>
+                        <td>@user.UserId</td>
+                        <td>@user.UserName</td>
+                    </tr>
+                }
             </tbody>
         </table>
     
         <script src="/js/bootstrap.js"></script>
         <script type="text/javascript" src="/js/lib/signalr.js"></script>
     
-        <script type="text/javascript">
-       
+    <script type="text/javascript">
+                
+                
+                
+                
                 let connection =new signalR.HubConnectionBuilder().withUrl("/usersListHub").build();
                 async function start() {
-                    try {
-                        await connection.start();
-                        console.log("SignalR Connected.");
-                    } catch (err) {
-                        console.log(err);
-                        setTimeout(start, 5000);
-                    }
-                }     
-           
-            connection.onclose(start);
-            
-            // Start the connection.
-            start();
-            
+                     try {
+                         
+                         await connection.start();
+                         console.log("SignalR Connected.");
+                     } catch (err) {
+                         console.log(err);
+                         setTimeout(start, 5000);
+                     }
+                 }     
+                connection.onclose(start);
+                
+                // Start the connection.
+                start();
+                connection.invoke("UsersListChanged").catch(function (err) {
+                    return console.error(err.toString());
+                });
+                connection.on("GetNewUsersList",function (result){
+                    const tBody = document.getElementById("tableBody");
+                    tBody.innerHTML = '';
+                    
+                    result.forEach((el) => {
+                        var tr = document.createElement("tr");
+                        var idtd = document.createElement("td");
+                        var untd = document.createElement("td");
+                        idtd.textContent =el.userId;
+                        untd.textContent = el.userName;
+                        tr.appendChild(idtd);
+                        tr.appendChild(untd);
+                        tBody.appendChild(tr);
+                    });
+                    
+                    console.log(result);
+                });
+               
+        
         </script>
     </body>
 </html>

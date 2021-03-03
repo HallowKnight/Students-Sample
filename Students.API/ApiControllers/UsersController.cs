@@ -56,7 +56,7 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> AddUserAsync([FromForm] string userName)
         {
             var result = await _mediator.Send(new CreateUserCommand() {UserName = userName});
-            await _hub.Clients.All.SendAsync("ListChanged", new GetAllUsersQuery());
+            await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 
@@ -85,7 +85,7 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> UpdateUserByUserId([FromForm] int userId, [FromForm] string studentName)
         {
             var result = await _mediator.Send(new UpdateUserCommand() {UserId = userId, UserNewName = studentName});
-            await _hub.Clients.All.SendAsync("ListChanged", new GetAllUsersQuery());
+            await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 
@@ -112,7 +112,7 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> DeleteUser(int userId)
         {
             var result = await _mediator.Send(new DeleteUserCommand() {UserId = userId});
-            await _hub.Clients.All.SendAsync("ListChanged", new GetAllUsersQuery());
+            await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 
