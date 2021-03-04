@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MediatR;
 
 namespace Students.Domain.Common
 {
@@ -9,7 +10,7 @@ namespace Students.Domain.Common
         
     }
 
-    public class DomainEvent
+    public class DomainEvent 
     {
         
         public int Id { get; set; }

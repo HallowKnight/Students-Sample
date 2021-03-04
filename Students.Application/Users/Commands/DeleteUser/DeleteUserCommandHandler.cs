@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Domain.Common;
+using Students.Domain.Events;
 //using Students.Domain.Events;
 
 namespace Students.Application.Users.Commands.DeleteUser
@@ -12,21 +12,22 @@ namespace Students.Application.Users.Commands.DeleteUser
         
         private readonly IUserCommands _userCommands;
         private readonly IUserQueries _userQueries;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMediator _mediator;
 
-        public DeleteStudentCommandHandler(IUserCommands userCommands,IUserQueries userQueries,IUnitOfWork unitOfWork)
+        public DeleteStudentCommandHandler(IUserCommands userCommands, IUserQueries userQueries, IMediator mediator)
         {
             _userCommands = userCommands;
             _userQueries = userQueries;
-            _unitOfWork = unitOfWork;
-        } 
+            _mediator = mediator;
+        }
         
         public async Task<int> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             User user = await _userQueries.GetUserByIdAsync(request.UserId);
             _userCommands.DeleteUser(user);
 
-           // user.DomainEvents.Add(new UsersChangedEvent(user));
+            await _mediator.Publish(new UsersChangedEvent(user));
+
             request.transctionCount += 1;
             
             return request.transctionCount;

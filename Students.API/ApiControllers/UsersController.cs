@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
+//using Microsoft.AspNetCore.SignalR;
+//using Students.Application.Common.Hubs;
 using Students.Application.Users.Commands.AddUserLesson;
 using Students.Application.Users.Commands.AddUserRole;
 using Students.Application.Users.Commands.CreateUser;
@@ -14,7 +15,6 @@ using Students.Application.Users.Commands.UpdateUser;
 using Students.Application.Users.Queries.GetAllUsers;
 using Students.Application.Users.Queries.GetUser;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Presentation.Hubs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,13 +24,13 @@ namespace Students.Presentation.ApiControllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IHubContext<UsersListHub> _hub;
+        //private readonly IHubContext<UsersListHub> _hub;
         private readonly IMediator _mediator;
 
-        public UsersController(IMediator mediator, IHubContext<UsersListHub> hub)
+        public UsersController(IMediator mediator /*,IHubContext<UsersListHub> hub*/)
         {
             _mediator = mediator;
-            _hub = hub;
+           // _hub = hub;
         }
 
         [HttpGet]
@@ -56,7 +56,7 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> AddUserAsync([FromForm] string userName)
         {
             var result = await _mediator.Send(new CreateUserCommand() {UserName = userName});
-            await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
+            //await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 
@@ -85,7 +85,7 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> UpdateUserByUserId([FromForm] int userId, [FromForm] string studentName)
         {
             var result = await _mediator.Send(new UpdateUserCommand() {UserId = userId, UserNewName = studentName});
-            await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
+            //await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 
@@ -112,7 +112,8 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> DeleteUser(int userId)
         {
             var result = await _mediator.Send(new DeleteUserCommand() {UserId = userId});
-            await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
+            
+            //await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 

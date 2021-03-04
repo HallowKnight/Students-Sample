@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Domain.Common;
+using Students.Domain.Events;
 
 namespace Students.Application.Users.Commands.UpdateUser
 {
@@ -11,14 +11,14 @@ namespace Students.Application.Users.Commands.UpdateUser
         
         private readonly IUserCommands _userCommands;
         private readonly IUserQueries _userQueries;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMediator _mediator;
 
-        public UpdateStudentCommandHandler(IUserCommands userCommands,IUserQueries userQueries,IUnitOfWork unitOfWork)
+        public UpdateStudentCommandHandler(IUserCommands userCommands, IUserQueries userQueries, IMediator mediator)
         {
             _userCommands = userCommands;
             _userQueries = userQueries;
-            _unitOfWork = unitOfWork;
-        } 
+            _mediator = mediator;
+        }
         
         public async Task<int> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
@@ -26,8 +26,16 @@ namespace Students.Application.Users.Commands.UpdateUser
             User user = await _userQueries.GetUserByIdAsync(request.UserId);
             user.UserName = request.UserNewName;
             _userCommands.UpdateUser(user);
-            request.transctionCount += 1;
             
+            
+            
+            await _mediator.Publish(new UsersChangedEvent(user));
+
+
+            request.transctionCount += 1;
+
+
+
             return request.transctionCount;
             
         }

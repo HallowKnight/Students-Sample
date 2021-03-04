@@ -25,3 +25,12 @@ C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Appli
 C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.csproj.CopyComplete
 C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.dll
 C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.pdb
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Core.dll
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Core.xml
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.xml
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.xml
+C:\Projects\Students\Students.Application\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.xml

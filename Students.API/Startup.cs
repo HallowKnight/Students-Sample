@@ -13,6 +13,7 @@ using Students.Domain.AggregatesModel.RoleAggregate;
 using Students.Domain.AggregatesModel.SchoolAggregate;
 using Students.Domain.AggregatesModel.UserAggregate;
 using Students.Domain.Common;
+using Students.Domain.Events;
 using Students.Infrastructure.Persistence.DBContext;
 using Students.Infrastructure.Persistence.UnitOfWork;
 using Students.Infrastructure.Repository.Lessons.Commands;
@@ -58,6 +59,7 @@ namespace Students.Presentation
                 options.UseSqlServer(Configuration.GetConnectionString("StudentsConnection"));
             });
             services.AddMediatR(typeof(CreateLessonCommand).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(UsersChangedEvent).GetTypeInfo().Assembly);
             
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             

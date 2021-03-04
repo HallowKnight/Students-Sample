@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
+using Students.Domain.Events;
 //using Students.Domain.Events;
 
 namespace Students.Application.Users.Commands.CreateUser
@@ -10,11 +11,12 @@ namespace Students.Application.Users.Commands.CreateUser
     {
 
         private readonly IUserCommands _userCommands;
+        private readonly IMediator _mediator;
 
-        public CreateStudentCommandHandler(IUserCommands userCommands)
+        public CreateStudentCommandHandler(IUserCommands userCommands, IMediator mediator)
         {
             _userCommands = userCommands;
-            
+            _mediator = mediator;
         }
         
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -26,8 +28,10 @@ namespace Students.Application.Users.Commands.CreateUser
             };
             await _userCommands.AddUserAsync(user);
             
-           // user.DomainEvents.Add(new UsersChangedEvent(user));
+            user.DomainEvents.Add(new UsersChangedEvent(user));
             
+            await _mediator.Publish(new UsersChangedEvent(user));
+           
             request.transctionCount += 1;
             
             return request.transctionCount;
