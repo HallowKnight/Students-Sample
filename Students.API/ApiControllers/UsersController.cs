@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Students.Application.Users.Commands.AddUserLesson;
 using Students.Application.Users.Commands.AddUserRole;
 using Students.Application.Users.Commands.CreateUser;
@@ -13,6 +14,7 @@ using Students.Application.Users.Commands.UpdateUser;
 using Students.Application.Users.Queries.GetAllUsers;
 using Students.Application.Users.Queries.GetUser;
 using Students.Domain.AggregatesModel.UserAggregate;
+using Students.Presentation.Hubs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,10 +26,9 @@ namespace Students.Presentation.ApiControllers
     {
         private readonly IMediator _mediator;
 
-        public UsersController(IMediator mediator)
+        public UsersController(IMediator mediator, IHubContext<UsersListHub> hub)
         {
             _mediator = mediator;
-           
         }
 
         [HttpGet]
@@ -53,7 +54,6 @@ namespace Students.Presentation.ApiControllers
         public async Task<ActionResult<int>> AddUserAsync([FromForm] string userName)
         {
             var result = await _mediator.Send(new CreateUserCommand() {UserName = userName});
-            //await _hub.Clients.All.SendAsync("GetNewUsersList",await _mediator.Send(new GetAllUsersQuery()));
             return result;
         }
 

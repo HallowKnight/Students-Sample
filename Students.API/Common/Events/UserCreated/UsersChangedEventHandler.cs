@@ -1,12 +1,14 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.SignalR;
 using Students.Application.Users.Queries.GetAllUsers;
-using Students.Domain.Events;
+using Students.Domain.Common;
+using Students.Domain.Events.UsersChanged;
 using Students.Presentation.Hubs;
 
-namespace Students.Presentation.Common.Events.UsersChanged
+namespace Students.Presentation.Common.Events.UserCreated
 {
     public class UsersChangedEventHandler : INotificationHandler<UsersChangedEvent>
     {
@@ -23,6 +25,7 @@ namespace Students.Presentation.Common.Events.UsersChanged
         public async Task Handle(UsersChangedEvent notification, CancellationToken cancellationToken)
         {
             var result =await _mediator.Send(new GetAllUsersQuery());
+
             await _hub.Clients.All.SendAsync("GetNewUsersList", result);
             
         }

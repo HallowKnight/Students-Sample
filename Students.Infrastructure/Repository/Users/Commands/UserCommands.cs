@@ -15,14 +15,14 @@ namespace Students.Infrastructure.Repository.Users.Commands
             _context = context;
         }
         
-        public async Task AddUserAsync(User user)
+        public async Task AddUserAsync(string userName)
         {
-            await _context.Users.AddAsync(user);
+            await _context.Users.AddAsync(new User(userName));
         }
    
-        public void UpdateUser(User user)
+        public void UpdateUser(string userName,int userId)
         {
-            _context.Users.Update(user);
+            _context.Users.Update(new User(userName){Id = userId});
         }
         
         public void DeleteUser(User user)

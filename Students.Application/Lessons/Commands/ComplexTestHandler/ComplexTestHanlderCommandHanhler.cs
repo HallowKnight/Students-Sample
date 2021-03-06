@@ -36,7 +36,7 @@ namespace Students.Application.Lessons.Commands.ComplexTestHandler
             request.transctionCount += 1;
             await _userCommands.AddLessonToUserAsync(request.UserId, l.Id);
             request.transctionCount += 1;
-            await _userCommands.AddUserAsync(new User() {UserName = request.UserName});
+            await _userCommands.AddUserAsync(request.UserName );
             request.transctionCount += 1;
             _userCommands.DeleteUser(await _userQueries.GetUserByIdAsync(request.UserId));
             request.transctionCount += 1;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -18,21 +19,11 @@ namespace Students.Application.Users.Queries.GetAllUsers
         
         public async Task<List<GetAllUsersDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            List<User> users = await _userQueries.GetAllUsersAsync();
-            List<GetAllUsersDto> usersList = new List<GetAllUsersDto>();
-
-            foreach (User user in users)
+            return (await _userQueries.GetAllUsersAsync()).Select(user => new GetAllUsersDto
             {
-                usersList.Add(new GetAllUsersDto()
-                {
-                    UserId = user.Id,
-                    UserName = user.UserName
-                });
-            }
-            
-            
-            
-            return usersList;
+                UserId = user.Id,
+                UserName = user.UserName
+            }).ToList();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Students.Domain.Common
 
     public class DomainEvent 
     {
-        
         public int Id { get; set; }
+
     }
 }

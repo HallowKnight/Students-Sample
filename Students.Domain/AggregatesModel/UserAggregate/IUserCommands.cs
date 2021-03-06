@@ -4,9 +4,9 @@ namespace Students.Domain.AggregatesModel.UserAggregate
 {
     public interface IUserCommands
     {
-        Task AddUserAsync(User user);
+        Task AddUserAsync(string userName);
         
-        void UpdateUser(User user);
+        void UpdateUser(string userName,int userId);
         
         void DeleteUser(User user);
         

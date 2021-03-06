@@ -10,13 +10,18 @@ namespace Students.Domain.AggregatesModel.UserAggregate
 {
     public class User : Entity,IHasDomainEvent, IAggregateRoot
     {
-        public string UserName { get; set; }
-
+        public User( string userName) 
+        {
+            UserName = userName;
+        }
+        
+        public string UserName { get; private set; }
 
         public int? ClassId { get; set; }
         public List<UserLessons> UserLessons { get; set; }
         public List<UserRoles> UserRoles { get; set; }
         public Class Class { get; set; }
+        
 
 
         public UserLessons UserLesson(int userId, int lessonId)
@@ -38,6 +43,7 @@ namespace Students.Domain.AggregatesModel.UserAggregate
         }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-           
+
+        
     }
 }
