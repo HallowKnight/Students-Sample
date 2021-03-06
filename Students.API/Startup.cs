@@ -59,6 +59,7 @@ namespace Students.Presentation
                 options.UseSqlServer(Configuration.GetConnectionString("StudentsConnection"));
             });
             services.AddMediatR(typeof(CreateLessonCommand).GetTypeInfo().Assembly);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             

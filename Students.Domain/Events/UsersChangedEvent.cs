@@ -8,10 +8,11 @@ namespace Students.Domain.Events
     {
     
         
-         public UsersChangedEvent(User user)
+         public UsersChangedEvent()
         {
-            User = user;
-        }
+            
+        } 
+         
         
         public User User { get; }
         

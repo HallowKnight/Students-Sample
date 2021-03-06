@@ -26,7 +26,8 @@ namespace Students.Application.Users.Commands.DeleteUser
             User user = await _userQueries.GetUserByIdAsync(request.UserId);
             _userCommands.DeleteUser(user);
 
-            await _mediator.Publish(new UsersChangedEvent(user));
+
+            await _mediator.Publish(new UsersChangedEvent());
 
             request.transctionCount += 1;
             

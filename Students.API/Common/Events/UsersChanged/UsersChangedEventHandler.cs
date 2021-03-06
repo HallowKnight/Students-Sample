@@ -24,6 +24,7 @@ namespace Students.Presentation.Common.Events.UsersChanged
         {
             var result =await _mediator.Send(new GetAllUsersQuery());
             await _hub.Clients.All.SendAsync("GetNewUsersList", result);
+            
         }
     }
 }

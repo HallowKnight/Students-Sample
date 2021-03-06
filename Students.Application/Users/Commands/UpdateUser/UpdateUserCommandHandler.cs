@@ -26,10 +26,8 @@ namespace Students.Application.Users.Commands.UpdateUser
             User user = await _userQueries.GetUserByIdAsync(request.UserId);
             user.UserName = request.UserNewName;
             _userCommands.UpdateUser(user);
-            
-            
-            
-            await _mediator.Publish(new UsersChangedEvent(user));
+
+            await _mediator.Publish(new UsersChangedEvent());
 
 
             request.transctionCount += 1;
