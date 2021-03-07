@@ -9,15 +9,17 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<UserRoles> userRolesConfigurations)
         {
             userRolesConfigurations.ToTable("UserRoles");
-            userRolesConfigurations.HasKey(ur => ur.Id);
-            userRolesConfigurations.Property(ur => ur.Id)/*.UseSqlServerIdentityColumn()*/;
+            userRolesConfigurations.HasKey(ur => ur._Id);
+            userRolesConfigurations.Property(ur => ur._Id);
             
-            
+            // Relation to Users
             userRolesConfigurations
                 .HasOne<User>(ur => ur.User)
                 .WithMany(u => u.UserRoles)
                 .HasForeignKey(ur=>ur.UserId);
 
+            
+            //Relation to Roles
             userRolesConfigurations
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)

@@ -12,24 +12,22 @@ namespace Students.Application.Users.Commands.DeleteUser
     {
         
         private readonly IUserCommands _userCommands;
-        private readonly IUserQueries _userQueries;
         private readonly IMediator _mediator;
         private readonly StudentsDbContext _context;
 
-        public DeleteStudentCommandHandler(IUserCommands userCommands, IUserQueries userQueries, IMediator mediator, StudentsDbContext context)
+        public DeleteStudentCommandHandler(IUserCommands userCommands, IMediator mediator, StudentsDbContext context)
         {
             _userCommands = userCommands;
-            _userQueries = userQueries;
             _mediator = mediator;
             _context = context;
         }
         
         public async Task<int> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            User user = await _userQueries.GetUserByIdAsync(request.UserId);
-            _userCommands.DeleteUser(user);
+            
+            await _userCommands.DeleteUserAsync(request.UserId);
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             
             await _mediator.Publish(new UsersChangedEvent());
 

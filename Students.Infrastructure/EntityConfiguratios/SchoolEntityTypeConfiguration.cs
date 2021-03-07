@@ -10,8 +10,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         {
 
             schoolConfigurations.ToTable("Schools");
-            schoolConfigurations.HasKey(s => s.Id);
-            schoolConfigurations.Property(s => s.Id)/*.UseSqlServerIdentityColumn()*/;
+            schoolConfigurations.HasKey(s => s._Id);
+            schoolConfigurations.Property(s => s._Id)/*.UseSqlServerIdentityColumn()*/;
             
             schoolConfigurations
                 .Property<string>("SchoolTitle")

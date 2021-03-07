@@ -6,16 +6,16 @@ namespace Students.Domain.AggregatesModel.UserAggregate
     {
         Task AddUserAsync(string userName);
         
-        void UpdateUser(string userName,int userId);
+        Task UpdateUserAsync(string userName,int userId);
         
-        void DeleteUser(User user);
+        Task DeleteUserAsync(int userId);
         
         Task AddLessonToUserAsync(int userId, int lessonId);
 
         Task AddRoleToUserAsync(int userId, int roleId);
         
-        void RemoveLessonFromUser(int userId, int lessonId);
+        Task RemoveLessonFromUserAsync(int userId, int lessonId);
         
-        void RemoveRoleFromUser(int userId, int roleId);
+        Task RemoveRoleFromUserAsync(int userId, int roleId);
     }
 }

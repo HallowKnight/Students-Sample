@@ -20,7 +20,7 @@ namespace Students.Infrastructure.Repository.Roles.Queries
         
         public async Task<Role> GetRoleByIdAsync(int roleId)
         {
-            return await _context.Roles.FirstAsync(r => r.Id == roleId);
+            return await _context.Roles.FirstAsync(r => r._Id == roleId);
         }
 
         public async Task<List<Role>> GetAllRolesAsync()

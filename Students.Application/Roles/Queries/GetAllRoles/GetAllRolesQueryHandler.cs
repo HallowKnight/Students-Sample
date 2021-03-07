@@ -24,7 +24,7 @@ namespace Students.Application.Roles.Queries.GetAllRoles
             {
                 rolesDto.Add(new GetAllRolesDto()
                 {
-                    RoleId = role.Id,
+                    RoleId = role._Id,
                     RoleTitle = role.RoleTitle
                 });
             }

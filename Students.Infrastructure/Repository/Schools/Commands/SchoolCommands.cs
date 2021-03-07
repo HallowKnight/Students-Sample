@@ -18,37 +18,37 @@ namespace Students.Infrastructure.Repository.Schools.Commands
         
         public async Task CreateSchoolAsync(string schoolTitle)
         {
-            await _context.Schools.AddAsync(new School() {SchoolTitle = schoolTitle});
+            await _context.Schools.AddAsync(new School(schoolTitle));
         }
 
-        public void DeleteSchool(int schoolId)
+        public async Task DeleteSchoolAsync(int schoolId)
         {
-            School school = _context.Schools.First(s => s.Id == schoolId);
+            School school =await _context.Schools.FirstAsync(s => s._Id == schoolId);
             _context.Remove(school);
         }
 
-        public void UpdateSchool(int schoolId, string schoolTitle)
+        public async Task UpdateSchoolAsync(int schoolId, string schoolTitle)
         {
-            School school = _context.Schools.First(s => s.Id == schoolId);
-            school.SchoolTitle = schoolTitle;
+            School school =await _context.Schools.FirstAsync(s => s._Id == schoolId);
+            school = school.UpdateSchoolTitle(school,schoolTitle);
             _context.Schools.Update(school);
         }
 
         public async Task CreateClassAsync(string classTitle,int schoolId)
         {
-            await _context.AddAsync(_context.Schools.First(s=>s.Id == schoolId).NewClass(classTitle,schoolId));
+            await _context.AddAsync(_context.Schools.First(s=>s._Id == schoolId).NewClass(classTitle,schoolId));
         }
 
-        public void UpdateClass(int classId,string classTitle)
+        public async Task UpdateClassAsync(int classId,string classTitle)
         {
-            var newClass = _context.Classes.First(c => c.Id == classId);
-            newClass.ClassTitle = classTitle;
-            _context.Classes.Update(newClass);
+            Class updatingClass =await _context.Classes.FirstAsync(c => c._Id == classId);
+            updatingClass = updatingClass.UpdateClassTitle(updatingClass, classTitle);
+            _context.Classes.Update(updatingClass);
         }   
 
-        public void DeleteClass(int classId)
+        public async Task DeleteClassAsync(int classId)
         {
-            _context.Remove(_context.Classes.First(c => c.Id == classId));
+            _context.Remove(await _context.Classes.FirstAsync(c => c._Id == classId));
         }
     }
 }

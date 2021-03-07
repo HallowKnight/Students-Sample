@@ -6,15 +6,15 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
     {
         Task CreateSchoolAsync(string schoolTitle);
 
-        void DeleteSchool(int schoolId);
+        Task DeleteSchoolAsync(int schoolId);
 
-        void UpdateSchool(int schoolId, string schoolTitle);
+        Task UpdateSchoolAsync(int schoolId, string schoolTitle);
 
         Task CreateClassAsync(string classTitle,int schoolId);
 
-        void UpdateClass(int classId,string classTitle);
+        Task UpdateClassAsync(int classId,string classTitle);
         
-        void DeleteClass(int classId);
+        Task DeleteClassAsync(int classId);
 
 
     }

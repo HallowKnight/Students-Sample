@@ -26,7 +26,7 @@ namespace Students.Application.Lessons.Queries.GetAllLessons
             { 
                 lessonsList.Add(new GetAllLessonsDto()
                 {
-                    LessonId = l.Id,
+                    LessonId = l._Id,
                     LessonTitle = l.LessonTitle
                 });
             }

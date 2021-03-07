@@ -11,13 +11,11 @@ namespace Students.Application.Users.Commands.UpdateUser
     {
         
         private readonly IUserCommands _userCommands;
-        private readonly IUserQueries _userQueries;
         private readonly IMediator _mediator;
 
-        public UpdateStudentCommandHandler(IUserCommands userCommands, IUserQueries userQueries, IMediator mediator)
+        public UpdateStudentCommandHandler(IUserCommands userCommands, IMediator mediator)
         {
             _userCommands = userCommands;
-            _userQueries = userQueries;
             _mediator = mediator;
             
         }
@@ -25,7 +23,7 @@ namespace Students.Application.Users.Commands.UpdateUser
         public async Task<int> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
 
-            _userCommands.UpdateUser(request.UserNewName,request.UserId);
+            await _userCommands.UpdateUserAsync(request.UserNewName,request.UserId);
 
             await _mediator.Publish(new UsersChangedEvent());
 

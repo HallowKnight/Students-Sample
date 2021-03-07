@@ -10,21 +10,39 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
     public class Lesson : Entity,IAggregateRoot
     {
 
-        public string LessonTitle { get; set; }
+        #region Constructor
 
-        public List<UserLessons> UserLessons { get; set; }
+        public Lesson(string lessonTitle,int id =0 ) : base(id)
+        {
+            LessonTitle = lessonTitle;
+        }
 
+        #endregion
         
         
+        public string LessonTitle { get; private set; }
+
+        #region Relation
+
+        public List<UserLessons> UserLessons { get; private set; }
+
+        #endregion
+
+        
+        #region Helpers And Validators
+
         public Lesson NewLesson(string lessonTitle)
         {
-            return new Lesson()
-            {
-                LessonTitle = lessonTitle
-            };
+            return new Lesson(lessonTitle);
+        }
+
+        public Lesson UpdateLessonTitle(Lesson lesson, string newLessonTitle)
+        {
+            lesson.LessonTitle = newLessonTitle;
+            return lesson;
         }
         
-        
-        
+        #endregion
+
     }
 }

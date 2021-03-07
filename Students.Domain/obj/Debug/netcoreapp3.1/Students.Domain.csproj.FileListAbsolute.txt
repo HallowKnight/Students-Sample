@@ -10,8 +10,8 @@ D:\Developement\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Studen
 C:\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.deps.json
 C:\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.dll
 C:\Projects\Students\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.pdb
-C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csprojAssemblyReference.cache
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfoInputs.cache
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfo.cs
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.dll
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.pdb
+C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csprojAssemblyReference.cache

@@ -11,8 +11,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<UserLessons> userLessonsConfigurations)
         {
             userLessonsConfigurations.ToTable("UserLessons");
-            userLessonsConfigurations.HasKey(ul => ul.Id);
-            userLessonsConfigurations.Property(ul => ul.Id)/*.UseSqlServerIdentityColumn()*/;
+            userLessonsConfigurations.HasKey(ul => ul._Id);
+            userLessonsConfigurations.Property(ul => ul._Id)/*.UseSqlServerIdentityColumn()*/;
 
             userLessonsConfigurations
                 .HasOne<User>(ul => ul.User)

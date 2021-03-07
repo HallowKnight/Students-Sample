@@ -6,8 +6,8 @@ namespace Students.Domain.AggregatesModel.RoleAggregate
     {
         Task AddRoleAsync(string roleTitle);
 
-        void RemoveRole(int roleId);
+        Task RemoveRoleAsync(int roleId);
 
-        void UpdateRole(int roleId, string roleTitle);
+        Task UpdateRoleAsync(int roleId, string roleTitle);
     }
 }

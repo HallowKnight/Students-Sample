@@ -23,9 +23,7 @@ namespace Students.Application.Lessons.Commands.DeleteLesson
         
         public async Task<int> Handle(DeleteLessonCommand request, CancellationToken cancellationToken)
         {
-            Lesson lesson = await _lessonQueries.GetLessonByIdAsync(request.LessonId);
-            
-            _lessonCommands.DeleteLessons(lesson);
+            await _lessonCommands.DeleteLessonAsync(request.LessonId);
             request.transctionCount += 1;
             return request.transctionCount;
         }

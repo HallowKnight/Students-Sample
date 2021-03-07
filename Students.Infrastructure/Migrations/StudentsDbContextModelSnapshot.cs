@@ -21,7 +21,7 @@ namespace Students.Infrastructure.Migrations
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.LessonAggregate.Lesson", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -30,14 +30,14 @@ namespace Students.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.RoleAggregate.Role", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -46,14 +46,14 @@ namespace Students.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.SchoolAggregate.Class", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -65,7 +65,7 @@ namespace Students.Infrastructure.Migrations
                     b.Property<int>("SchoolId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.HasIndex("SchoolId");
 
@@ -74,7 +74,7 @@ namespace Students.Infrastructure.Migrations
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.SchoolAggregate.School", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -83,14 +83,14 @@ namespace Students.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.ToTable("Schools");
                 });
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.UserAggregate.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -102,7 +102,7 @@ namespace Students.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.HasIndex("ClassId");
 
@@ -111,7 +111,7 @@ namespace Students.Infrastructure.Migrations
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.UserAggregate.UserLessons", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -122,7 +122,7 @@ namespace Students.Infrastructure.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.HasIndex("LessonId");
 
@@ -133,7 +133,7 @@ namespace Students.Infrastructure.Migrations
 
             modelBuilder.Entity("Students.Domain.AggregatesModel.UserAggregate.UserRoles", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -144,7 +144,7 @@ namespace Students.Infrastructure.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("_Id");
 
                     b.HasIndex("RoleId");
 
@@ -160,12 +160,12 @@ namespace Students.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("UserId")
+                    b.Property<int?>("User_Id")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("User_Id");
 
                     b.ToTable("DomainEvent");
                 });
@@ -220,7 +220,7 @@ namespace Students.Infrastructure.Migrations
                 {
                     b.HasOne("Students.Domain.AggregatesModel.UserAggregate.User", null)
                         .WithMany("DomainEvents")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("User_Id");
                 });
 #pragma warning restore 612, 618
         }

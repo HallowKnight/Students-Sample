@@ -20,7 +20,7 @@ namespace Students.Application.Roles.Queries.GetRole
             Role role =await _roleQueries.GetRoleByIdAsync(request.RoleId);
             GetRoleDto roleDto = new GetRoleDto()
             {
-                RoleId = role.Id,
+                RoleId = role._Id,
                 RoleTitlle = role.RoleTitle
             };
 

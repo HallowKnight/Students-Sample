@@ -16,7 +16,7 @@ namespace Students.Application.Schools.Commands.DeleteClass
         
         public async Task<int> Handle(DeteleClassCommand request, CancellationToken cancellationToken)
         {
-            _schoolCommands.DeleteClass(request.ClassId);
+            await _schoolCommands.DeleteClassAsync(request.ClassId);
             request.transctionCount++;
 
             return request.transctionCount;

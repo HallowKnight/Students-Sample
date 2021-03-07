@@ -5,14 +5,28 @@ namespace Students.Domain.AggregatesModel.UserAggregate
 {
     public class UserRoles : Entity
     {
-        public int UserId { get; set; }
-        public int RoleId { get; set; }
+        #region Constructor
         
-      
+        public UserRoles( int userId, int roleId, int id = 0) : base(id)
+        {
+            _userId = userId;
+            _roleId = roleId;
+        }
         
+        #endregion
         
-        public User User { get; set; }
+        public int UserId => _userId;
+        private int _userId;
+
+        public int RoleId => _roleId;
+        private int _roleId;
         
-        public Role Role { get; set; }
+        #region Relations
+
+        public User User { get; private set; }
+
+        public Role Role { get; private set; }
+
+        #endregion
     }
 }

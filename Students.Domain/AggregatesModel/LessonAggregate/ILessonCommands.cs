@@ -4,10 +4,10 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
 {
     public interface ILessonCommands
     {
-        Task AddLessonAsync(Lesson lesson);
+        Task AddLessonAsync(string lessonTitle);
         
-        void UpdateLesson(Lesson lesson);
+        Task UpdateLessonAsync(int lessonId,string lessonTitle);
         
-        void DeleteLessons(Lesson lesson);
+        Task DeleteLessonAsync(int lessonId);
     }
 }

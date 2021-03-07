@@ -19,7 +19,7 @@ namespace Students.Application.Users.Commands.RemoveUserRole
         
         public async Task<int> Handle(RemoveUserRoleCommand request, CancellationToken cancellationToken)
         {
-            _userCommands.RemoveRoleFromUser(request.UserId,request.RoleId);
+            await _userCommands.RemoveRoleFromUserAsync(request.UserId,request.RoleId);
             request.transctionCount++;
             return request.transctionCount;
         }

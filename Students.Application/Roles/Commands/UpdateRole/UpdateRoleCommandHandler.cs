@@ -16,7 +16,7 @@ namespace Students.Application.Roles.Commands.UpdateRole
         
         public async Task<int> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
         {
-            _roleCommands.UpdateRole(request.RoleId,request.NewTitle);
+            await _roleCommands.UpdateRoleAsync(request.RoleId,request.NewTitle);
             request.transctionCount++;
             return request.transctionCount;
         }

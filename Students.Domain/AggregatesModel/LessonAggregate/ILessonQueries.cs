@@ -10,7 +10,6 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
         
         Task<Lesson> GetLessonByIdAsync(int lessonId);
         
-        Lesson GetLessonById(int lessonId);
 
         Task<List<string>> GetUserLessonsAsync(int userId);
 

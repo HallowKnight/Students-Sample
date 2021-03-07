@@ -27,7 +27,7 @@ namespace Students.Application.Roles.Queries.GetRoleUsers
             {
                 roleUsersDto.Add(new GetRoleUsersDto()
                 {
-                    UserId = user.Id,
+                    UserId = user._Id,
                     UserName = user.UserName
                 });
             }

@@ -22,7 +22,7 @@ namespace Students.Application.Users.Queries.GetUser
 
             return new GetUserDto()
             {
-                UserId = user.Id,
+                UserId = user._Id,
                 UserName = user.UserName
             };
         }

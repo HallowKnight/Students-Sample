@@ -17,7 +17,7 @@ namespace Students.Application.Roles.Commands.DeleteRole
         
         public async Task<int> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
         {
-            _roleCommands.RemoveRole(request.RoleId);
+            await _roleCommands.RemoveRoleAsync(request.RoleId);
             request.transctionCount++;
             return request.transctionCount;
         }

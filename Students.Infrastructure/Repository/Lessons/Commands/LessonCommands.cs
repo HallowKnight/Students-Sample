@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Students.Domain.AggregatesModel.LessonAggregate;
 using Students.Infrastructure.Persistence.DBContext;
 
@@ -14,19 +15,21 @@ namespace Students.Infrastructure.Repository.Lessons.Commands
             _context = context;
         }
         
-        public async Task AddLessonAsync(Lesson lesson)
+        public async Task AddLessonAsync(string lessonTitle)
         {
-            await _context.Lessons.AddAsync(lesson);
+            await _context.Lessons.AddAsync(new Lesson(lessonTitle));
         }
 
-        public void UpdateLesson(Lesson lesson)
+        public async Task UpdateLessonAsync(int lessonId,string lessonTitle)
         {
+            Lesson lesson = await _context.Lessons.FirstOrDefaultAsync(l => l._Id == lessonId);
+            lesson = lesson.UpdateLessonTitle(lesson, lessonTitle);
             _context.Lessons.Update(lesson);
         }
 
-        public void DeleteLessons(Lesson lesson)
+        public async Task DeleteLessonAsync(int lessonId)
         {
-            _context.Lessons.Remove(lesson);
+            _context.Lessons.Remove(await _context.Lessons.FirstOrDefaultAsync(l=>l._Id == lessonId));
         }
 
       

@@ -10,35 +10,29 @@ namespace Students.Application.Lessons.Commands.ComplexTestHandler
 {
     public class ComplexTestHandlerCommandHandler : IRequestHandler<ComplexTestHandlerCommand, int>
     {
+        
         private readonly ILessonCommands _lessonCommands;
-        private readonly ILessonQueries _lessonQueries;
         private readonly IUserCommands _userCommands;
-        private readonly IUserQueries _userQueries;
-        private readonly IUnitOfWork _unitOfWork;
+       
 
-        public ComplexTestHandlerCommandHandler(ILessonCommands lessonCommands, ILessonQueries lessonQueries,
-            IUserCommands studentCommands, IUserQueries studentQueries, IUnitOfWork unitOfWork)
+        public ComplexTestHandlerCommandHandler(ILessonCommands lessonCommands,
+            IUserCommands studentCommands)
         {
             _lessonCommands = lessonCommands;
-            _lessonQueries = lessonQueries;
             _userCommands = studentCommands;
-            _userQueries = studentQueries;
-            _unitOfWork = unitOfWork;
+            
         }
 
 
         public async Task<int> Handle(ComplexTestHandlerCommand request, CancellationToken cancellationToken)
         {
-            Lesson l = new Lesson() {LessonTitle = request.LessonName, Id = 545};
-
-
-            await _lessonCommands.AddLessonAsync(l);
+            await _lessonCommands.AddLessonAsync(request.LessonName);
             request.transctionCount += 1;
-            await _userCommands.AddLessonToUserAsync(request.UserId, l.Id);
+            await _userCommands.AddLessonToUserAsync(request.UserId, request.LessonId);
             request.transctionCount += 1;
-            await _userCommands.AddUserAsync(request.UserName );
+            await _userCommands.AddUserAsync(request.UserName);
             request.transctionCount += 1;
-            _userCommands.DeleteUser(await _userQueries.GetUserByIdAsync(request.UserId));
+            await _userCommands.DeleteUserAsync(request.UserId);
             request.transctionCount += 1;
             
             return request.transctionCount;

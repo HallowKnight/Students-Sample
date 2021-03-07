@@ -81,7 +81,7 @@ namespace Students.Presentation.ApiControllers
             return await _mediator.Send(new UpdateRoleCommand() {NewTitle = newRoleTitle, RoleId = roleId});
         }
 
-        [HttpPut]
+        [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

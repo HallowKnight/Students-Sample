@@ -119,6 +119,7 @@ C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
@@ -186,4 +187,3 @@ C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.csproj.CopyComplete
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.dll
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.pdb
-C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll

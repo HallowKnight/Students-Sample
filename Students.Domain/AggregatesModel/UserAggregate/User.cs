@@ -10,15 +10,20 @@ namespace Students.Domain.AggregatesModel.UserAggregate
 {
     public class User : Entity, IHasDomainEvent, IAggregateRoot
     {
-        public User(int id, string userName, int? classId) : base(id)
+        #region Contrustor
+
+        public User( string userName, int? classId,int id = 0) : base(id)
         {
             base._Id = id;
-            if (userName != null)
-                UserName = userName;
+
+            UserName = !String.IsNullOrEmpty(userName) ? userName : throw new ArgumentNullException(userName);
+
             if (classId != null)
                 _classId = classId;
         }
 
+        #endregion
+        
         public string UserName { get; private set; }
 
         public int? ClassId => _classId;
@@ -29,8 +34,8 @@ namespace Students.Domain.AggregatesModel.UserAggregate
         public List<UserLessons> UserLessons { get; private set; }
         public List<UserRoles> UserRoles { get; private set; }
         public Class Class { get; private set; }
-        
-        public List<DomainEvent> DomainEvents { get;  set; } = new List<DomainEvent>();
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
         #endregion
 
@@ -38,20 +43,18 @@ namespace Students.Domain.AggregatesModel.UserAggregate
 
         public UserLessons UserLesson(int userId, int lessonId)
         {
-            return new UserLessons()
-            {
-                UserId = userId,
-                LessonId = lessonId
-            };
+            return new UserLessons(userId, userId);
         }
 
         public UserRoles UserRole(int userId, int roleId)
         {
-            return new UserRoles()
-            {
-                UserId = userId,
-                RoleId = roleId
-            };
+            return new UserRoles(userId, roleId);
+        }
+
+        public User UpdateUser(User user, string newUserName)
+        {
+            user.UserName = newUserName;
+            return user;
         }
         
         #endregion

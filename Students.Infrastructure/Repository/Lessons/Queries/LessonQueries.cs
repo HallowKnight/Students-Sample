@@ -23,14 +23,9 @@ namespace Students.Infrastructure.Repository.Lessons.Queries
 
         public async Task<Lesson> GetLessonByIdAsync(int lessonId)
         {
-            return await _context.Lessons.SingleOrDefaultAsync(l => l.Id == lessonId);
+            return await _context.Lessons.SingleOrDefaultAsync(l => l._Id == lessonId);
         }
-
-        public Lesson GetLessonById(int id)
-        {
-            return _context.Lessons.FirstOrDefault(l => l.Id == id);
-        }
-
+        
         public async Task<List<string>>  GetUserLessonsAsync(int userId)
         {
 

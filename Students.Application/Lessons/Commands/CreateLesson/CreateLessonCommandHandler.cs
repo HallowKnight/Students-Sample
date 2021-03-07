@@ -23,12 +23,8 @@ namespace Students.Application.Lessons.Commands.CreateLesson
 
         public async Task<int> Handle(CreateLessonCommand request, CancellationToken cancellationToken)
         {
-            Lesson lesson = new Lesson()
-            {
-                LessonTitle = request.LessonTitle
-            };
-
-            await _lessonCommands.AddLessonAsync(lesson);
+         
+            await _lessonCommands.AddLessonAsync(request.LessonTitle);
             request.transctionCount += 1;
             return request.transctionCount;
         }

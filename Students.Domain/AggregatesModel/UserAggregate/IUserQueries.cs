@@ -7,8 +7,6 @@ namespace Students.Domain.AggregatesModel.UserAggregate
     {
         Task<User> GetUserByIdAsync(int userId);
         
-        User GetUserById(int userId);
-        
         Task<List<User>> GetAllUsersAsync();
     }
 }

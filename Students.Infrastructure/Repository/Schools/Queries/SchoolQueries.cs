@@ -25,12 +25,12 @@ namespace Students.Infrastructure.Repository.Schools.Queries
 
         public async Task<School> GetSchoolByIdAsync(int schoolId)
         {
-            return await _context.Schools.FirstAsync(s => s.Id == schoolId);
+            return await _context.Schools.FirstAsync(s => s._Id == schoolId);
         }
 
         public async Task<Class> GetClassByIdAsync(int classId)
         {
-            return await _context.Classes.FirstAsync(c => c.Id== classId);
+            return await _context.Classes.FirstAsync(c => c._Id== classId);
         }
 
         public async Task<List<Class>> GetSchoolClassesAsync(int schoolId)

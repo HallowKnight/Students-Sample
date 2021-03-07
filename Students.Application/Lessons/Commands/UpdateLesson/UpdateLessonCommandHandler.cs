@@ -10,23 +10,16 @@ namespace Students.Application.Lessons.Commands.UpdateLesson
     public class UpdateLessonCommandHandler : IRequestHandler<UpdateLessonCommand,int>
     {
         private readonly ILessonCommands _lessonCommands;
-        private readonly ILessonQueries _lessonQueries;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateLessonCommandHandler(ILessonCommands lessonCommands,ILessonQueries lessonQueries,IUnitOfWork unitOfWork)
+        public UpdateLessonCommandHandler(ILessonCommands lessonCommands)
         {
             _lessonCommands = lessonCommands;
-            _lessonQueries = lessonQueries;
-            _unitOfWork = unitOfWork;
         }
         
         
         public async Task<int> Handle(UpdateLessonCommand request, CancellationToken cancellationToken)
         {
-            Lesson lesson = await _lessonQueries.GetLessonByIdAsync(request.LessonId);
-            
-            lesson.LessonTitle = request.NewTitle;
-            _lessonCommands.UpdateLesson(lesson);
+            await _lessonCommands.UpdateLessonAsync(request.LessonId,request.NewTitle);
             request.transctionCount += 1;
             
             return request.transctionCount;

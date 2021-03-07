@@ -18,7 +18,7 @@ namespace Students.Application.Schools.Commands.DeleteSchool
         
         public async Task<int> Handle(DeleteSchoolCommand request, CancellationToken cancellationToken)
         {
-            _schoolCommands.DeleteSchool(request.SchoolId);
+            await _schoolCommands.DeleteSchoolAsync(request.SchoolId);
             request.transctionCount++;
 
             return request.transctionCount;

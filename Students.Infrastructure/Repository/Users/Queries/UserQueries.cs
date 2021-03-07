@@ -17,14 +17,9 @@ namespace Students.Infrastructure.Repository.Users.Queries
         
         public async Task<User> GetUserByIdAsync(int userId)
         {
-            return await _context.Users.SingleOrDefaultAsync(u => u.Id == userId);
+            return await _context.Users.SingleOrDefaultAsync(u => u._Id == userId);
         }
-
-        public User GetUserById(int userId)
-        {
-            return _context.Users.First(u => u.Id == userId);
-        }
-
+        
         public async Task<List<User>> GetAllUsersAsync()
         {
             return await _context.Users.ToListAsync();

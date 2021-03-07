@@ -13,24 +13,21 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<User> userConfiguration)
         {
             userConfiguration.ToTable("Users");
-            userConfiguration.HasKey(u=>u.Id);
-            userConfiguration.Property(u => u.Id)/*.UseSqlServerIdentityColumn()*/;
+            userConfiguration.HasKey(u=>u._Id);
+            userConfiguration.Property(u => u._Id);
 
             userConfiguration
                 .Property<string>("UserName")
                 .IsRequired(true);
-            
-            
+
+
 
             userConfiguration
                 .HasMany<UserRoles>(u => u.UserRoles)
-                .WithOne(ur => ur.User)
-                .HasForeignKey(ur=>ur.Id);
-            
-            userConfiguration.
-                HasMany<UserLessons>(u => u.UserLessons)
-                .WithOne(ul=>ul.User)
-                .HasForeignKey(ul=>ul.Id);
+                .WithOne(ur => ur.User);
+
+            userConfiguration.HasMany<UserLessons>(u => u.UserLessons)
+                .WithOne(ul => ul.User);
             
             userConfiguration
                 .HasOne<Class>(u=>u.Class)

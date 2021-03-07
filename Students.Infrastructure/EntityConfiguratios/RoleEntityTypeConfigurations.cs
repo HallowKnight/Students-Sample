@@ -11,16 +11,16 @@ namespace Students.Infrastructure.EntityConfiguratios
         {
 
             roleConfigurations.ToTable("Roles");
-            roleConfigurations.HasKey(r => r.Id);
-            roleConfigurations.Property(r => r.Id)/*.UseSqlServerIdentityColumn()*/;
+            roleConfigurations.HasKey(r => r._Id);
+            roleConfigurations.Property(r => r._Id);
+           
             roleConfigurations
                 .Property<string>("RoleTitle")
                 .IsRequired(true);
 
             roleConfigurations
                 .HasMany<UserRoles>(r => r.UserRoles)
-                .WithOne(ur => ur.Role)
-                .HasForeignKey(ur=>ur.Id);
+                .WithOne(ur => ur.Role);
         }
     }
 }
