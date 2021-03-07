@@ -17,7 +17,7 @@ namespace Students.Infrastructure.Repository.Users.Commands
         
         public async Task AddUserAsync(string userName)
         {
-            await _context.Users.AddAsync(new User(userName));
+            await _context.Users.AddAsync(new User());
         }
    
         public void UpdateUser(string userName,int userId)

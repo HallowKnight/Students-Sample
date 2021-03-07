@@ -4,19 +4,14 @@ namespace Students.Domain.Common
 {
     public abstract class Entity
     {
-        [Key]
-        private int _Id;
-
-        public virtual int Id
+        protected Entity(int id)
         {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                _Id = value;
-            }
+            _Id = id;
         }
+        
+        [Key]
+        public int _Id { get; protected set; }
+
+        
     }
 }

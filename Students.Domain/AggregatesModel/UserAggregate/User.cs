@@ -8,21 +8,33 @@ using Students.Domain.Common;
 
 namespace Students.Domain.AggregatesModel.UserAggregate
 {
-    public class User : Entity,IHasDomainEvent, IAggregateRoot
+    public class User : Entity, IHasDomainEvent, IAggregateRoot
     {
-        public User( string userName) 
+        public User(int id, string userName, int? classId) : base(id)
         {
-            UserName = userName;
+            base._Id = id;
+            if (userName != null)
+                UserName = userName;
+            if (classId != null)
+                _classId = classId;
         }
-        
+
         public string UserName { get; private set; }
 
-        public int? ClassId { get; set; }
-        public List<UserLessons> UserLessons { get; set; }
-        public List<UserRoles> UserRoles { get; set; }
-        public Class Class { get; set; }
-        
+        public int? ClassId => _classId;
+        private int? _classId;
 
+        #region Relations
+
+        public List<UserLessons> UserLessons { get; private set; }
+        public List<UserRoles> UserRoles { get; private set; }
+        public Class Class { get; private set; }
+        
+        public List<DomainEvent> DomainEvents { get;  set; } = new List<DomainEvent>();
+
+        #endregion
+
+        #region Validations And Helpers
 
         public UserLessons UserLesson(int userId, int lessonId)
         {
@@ -41,9 +53,7 @@ namespace Students.Domain.AggregatesModel.UserAggregate
                 RoleId = roleId
             };
         }
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
         
+        #endregion
     }
 }
