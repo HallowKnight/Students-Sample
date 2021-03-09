@@ -14,7 +14,7 @@ using Students.Application.Users.Commands.UpdateUser;
 using Students.Application.Users.Queries.GetAllUsers;
 using Students.Application.Users.Queries.GetUser;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Presentation.Hubs;
+using Students.Presentation.Common.Hubs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

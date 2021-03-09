@@ -9,8 +9,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<Class> classConfigurations)
         {
             classConfigurations.ToTable("Classes");
-            classConfigurations.HasKey(c => c._Id);
-            classConfigurations.Property(c => c._Id)/*.UseSqlServerIdentityColumn()*/;
+            classConfigurations.HasKey(c => c.Id);
+            classConfigurations.Property(c => c.Id);
             
             classConfigurations
                 .Property<string>("ClassTitle")

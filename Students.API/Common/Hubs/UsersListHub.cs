@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.SignalR;
 using Students.Application.Users.Queries.GetAllUsers;
 
-namespace Students.Presentation.Hubs
+namespace Students.Presentation.Common.Hubs
 {
     public class UsersListHub : Hub
     {

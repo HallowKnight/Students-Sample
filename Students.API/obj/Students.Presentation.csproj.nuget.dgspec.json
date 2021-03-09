@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Students\\Students.Api\\Students.Presentation.csproj": {}
+    "C:\\Projects\\Students\\Students.API\\Students.Presentation.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Students\\Students.Api\\Students.Presentation.csproj": {
+    "C:\\Projects\\Students\\Students.API\\Students.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Students\\Students.Api\\Students.Presentation.csproj",
+        "projectUniqueName": "C:\\Projects\\Students\\Students.API\\Students.Presentation.csproj",
         "projectName": "Students.Presentation",
-        "projectPath": "C:\\Projects\\Students\\Students.Api\\Students.Presentation.csproj",
+        "projectPath": "C:\\Projects\\Students\\Students.API\\Students.Presentation.csproj",
         "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Students\\Students.Api\\obj\\",
+        "outputPath": "C:\\Projects\\Students\\Students.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Programmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.1.6, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -74,6 +78,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.12, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -20,7 +20,7 @@ namespace Students.Application.Schools.Queries.GetClass
 
             return new GetClassDto()
             {
-                ClassId = currentClass._Id,
+                ClassId = currentClass.Id,
                 ClassTitle = currentClass.ClassTitle
             };
         }

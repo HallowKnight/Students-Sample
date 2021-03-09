@@ -7,7 +7,7 @@ namespace Students.Domain.AggregatesModel.UserAggregate
     {
         #region Constructor
         
-        public UserRoles( int userId, int roleId, int id = 0) : base(id)
+        public UserRoles( int userId, int roleId) 
         {
             _userId = userId;
             _roleId = roleId;

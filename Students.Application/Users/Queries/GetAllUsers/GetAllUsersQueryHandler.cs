@@ -21,7 +21,7 @@ namespace Students.Application.Users.Queries.GetAllUsers
         {
             return (await _userQueries.GetAllUsersAsync()).Select(user => new GetAllUsersDto
             {
-                UserId = user._Id,
+                UserId = user.Id,
                 UserName = user.UserName
             }).ToList();
         }

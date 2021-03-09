@@ -17,7 +17,7 @@ namespace Students.Application.Schools.Commands.UpdateClass
         
         public async Task<int> Handle(UpdateClassCommand request, CancellationToken cancellationToken)
         {
-            await _schoolCommands.UpdateClassAsync(request.ClassId,request.ClassTitle);
+            await _schoolCommands.UpdateClassAsync(request.ClassId,request.SchoolId,request.ClassTitle);
             request.transctionCount++;
 
             return request.transctionCount;

@@ -1,6 +1,10 @@
 ﻿namespace Students.Application.Common.Interfaces
 {
-    public interface IRequestPostProcessor
+    /// <summary>
+    /// Used to Tag The Post Processor Pipeline
+    /// </summary>
+    
+    public interface IRequestPostProcessor 
     {
         
     }

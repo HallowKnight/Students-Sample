@@ -17,7 +17,7 @@ namespace Students.Infrastructure.Repository.Users.Queries
         
         public async Task<User> GetUserByIdAsync(int userId)
         {
-            return await _context.Users.SingleOrDefaultAsync(u => u._Id == userId);
+            return await _context.Users.SingleOrDefaultAsync(u => u.Id == userId);
         }
         
         public async Task<List<User>> GetAllUsersAsync()

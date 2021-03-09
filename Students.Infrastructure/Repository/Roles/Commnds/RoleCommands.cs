@@ -23,12 +23,12 @@ namespace Students.Infrastructure.Repository.Roles.Commnds
 
         public async Task RemoveRoleAsync(int roleId)
         {
-            _context.Roles.Remove(await _context.Roles.FirstAsync(r => r._Id == roleId));
+            _context.Roles.Remove(await _context.Roles.FirstAsync(r => r.Id == roleId));
         }
 
         public async Task UpdateRoleAsync(int roleId, string roleTitle)
         {
-            Role role =await _context.Roles.FirstAsync(r=>r._Id == roleId);
+            Role role =await _context.Roles.FirstAsync(r=>r.Id == roleId);
             role = role.updateRoleTitle(role,roleTitle);
             _context.Roles.Update(role);
         }

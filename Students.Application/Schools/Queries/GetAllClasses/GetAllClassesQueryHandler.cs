@@ -26,7 +26,7 @@ namespace Students.Application.Schools.Queries.GetAllClasses
             {
                 classesDtos.Add(new GetAllClassesDto()
                 {
-                    ClassId = currentClass._Id,
+                    ClassId = currentClass.Id,
                     ClassTitle = currentClass.ClassTitle
                 });
             }

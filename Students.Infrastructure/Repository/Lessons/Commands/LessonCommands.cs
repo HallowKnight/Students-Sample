@@ -22,16 +22,16 @@ namespace Students.Infrastructure.Repository.Lessons.Commands
 
         public async Task UpdateLessonAsync(int lessonId,string lessonTitle)
         {
-            Lesson lesson = await _context.Lessons.FirstOrDefaultAsync(l => l._Id == lessonId);
+            Lesson lesson = await _context.Lessons.FirstOrDefaultAsync(l => l.Id == lessonId);
             lesson = lesson.UpdateLessonTitle(lesson, lessonTitle);
             _context.Lessons.Update(lesson);
         }
 
         public async Task DeleteLessonAsync(int lessonId)
         {
-            _context.Lessons.Remove(await _context.Lessons.FirstOrDefaultAsync(l=>l._Id == lessonId));
+            _context.Lessons.Remove(await _context.Lessons.FirstOrDefaultAsync(l => l.Id == lessonId));
         }
 
-      
+
     }
 }

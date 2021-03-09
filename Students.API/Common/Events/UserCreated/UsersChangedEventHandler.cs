@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.SignalR;
 using Students.Application.Users.Queries.GetAllUsers;
 using Students.Domain.Common;
 using Students.Domain.Events.UsersChanged;
-using Students.Presentation.Hubs;
+using Students.Presentation.Common.Hubs;
 
 namespace Students.Presentation.Common.Events.UserCreated
 {

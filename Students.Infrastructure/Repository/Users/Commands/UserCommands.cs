@@ -23,25 +23,25 @@ namespace Students.Infrastructure.Repository.Users.Commands
 
         public async Task UpdateUserAsync(string userName, int userId)
         {
-            User user = await _context.Users.FirstOrDefaultAsync(u => u._Id == userId);
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             user = user.UpdateUser(user, userName);
             _context.Users.Update(user);
         }
 
         public async Task DeleteUserAsync(int userId)
         {
-            _context.Users.Remove(await _context.Users.FirstOrDefaultAsync(u => u._Id == userId));
+            _context.Users.Remove(await _context.Users.FirstOrDefaultAsync(u => u.Id == userId));
         }
 
         public async Task AddLessonToUserAsync(int userId, int lessonId)
         {
-            User user = await _context.Users.FirstAsync(u => u._Id == userId);
+            User user = await _context.Users.FirstAsync(u => u.Id == userId);
             await _context.UserLessons.AddAsync(user.UserLesson(userId, lessonId));
         }
 
         public async Task AddRoleToUserAsync(int userId, int roleId)
         {
-            User user = _context.Users.First(u => u._Id == userId);
+            User user = _context.Users.First(u => u.Id == userId);
             await _context.UserRoles.AddAsync(user.UserRole(userId, roleId));
         }
 

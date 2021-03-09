@@ -9,8 +9,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<UserRoles> userRolesConfigurations)
         {
             userRolesConfigurations.ToTable("UserRoles");
-            userRolesConfigurations.HasKey(ur => ur._Id);
-            userRolesConfigurations.Property(ur => ur._Id);
+            userRolesConfigurations.HasKey(ur => ur.Id);
+            userRolesConfigurations.Property(ur => ur.Id);
             
             // Relation to Users
             userRolesConfigurations

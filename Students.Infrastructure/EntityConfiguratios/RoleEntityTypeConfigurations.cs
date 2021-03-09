@@ -11,8 +11,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         {
 
             roleConfigurations.ToTable("Roles");
-            roleConfigurations.HasKey(r => r._Id);
-            roleConfigurations.Property(r => r._Id);
+            roleConfigurations.HasKey(r => r.Id);
+            roleConfigurations.Property(r => r.Id);
            
             roleConfigurations
                 .Property<string>("RoleTitle")

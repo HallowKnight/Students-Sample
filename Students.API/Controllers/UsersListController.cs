@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Students.Application.Users.Queries.GetAllUsers;
@@ -18,8 +19,8 @@ namespace Students.Presentation.Controllers
         public async Task<IActionResult> Index()
         {
             var result = await _mediator.Send(new GetAllUsersQuery());
-            
             return View(result);
         }
+        
     }
 }

@@ -10,7 +10,7 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
     {
         #region Contsructor
 
-        public Class(int schoolId, string classTitle, int id = 0) : base(id)
+        public Class(int schoolId, string classTitle) 
         {
             _schoolId = schoolId;
             ClassTitle = !String.IsNullOrEmpty(classTitle) ? classTitle : throw new ArgumentNullException(classTitle);
@@ -33,14 +33,5 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
         #endregion
 
 
-        #region Helpers And Validators
-
-        public Class UpdateClassTitle(Class updatingClass, string newClassTitle)
-        {
-            updatingClass.ClassTitle = newClassTitle;
-            return updatingClass;
-        }
-
-        #endregion
     }
 }

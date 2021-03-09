@@ -11,8 +11,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         {
 
             lessonConfiguration.ToTable("Lessons");
-            lessonConfiguration.HasKey(l => l._Id);
-            lessonConfiguration.Property(l => l._Id);
+            lessonConfiguration.HasKey(l => l.Id);
+            lessonConfiguration.Property(l => l.Id);
           
             lessonConfiguration
                 .Property<string>("LessonTitle")

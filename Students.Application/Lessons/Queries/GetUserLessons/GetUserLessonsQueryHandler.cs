@@ -27,7 +27,7 @@ namespace Students.Application.Lessons.Queries.GetUserLessons
 
             GetUserLessonsDto lessonsDto = new GetUserLessonsDto()
             {
-                UserId = user._Id,
+                UserId = user.Id,
                 UserName = user.UserName,
                 UserLessons = await _lessonQueries.GetUserLessonsAsync(request.UserId)
             };

@@ -8,6 +8,8 @@ using Students.Domain.Common;
 
 namespace Students.Application.Common.Behaviours
 {
+    
+    // A custom Pipeline that Is Called Every time that a RequestHandler is Called 
     public class CommitPostProcessor<TRequest,TResponse> : IRequestPostProcessor<TRequest,TResponse>
     {
 

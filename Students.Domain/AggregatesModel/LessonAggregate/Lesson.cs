@@ -12,13 +12,12 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
 
         #region Constructor
 
-        public Lesson(string lessonTitle,int id =0 ) : base(id)
+        public Lesson(string lessonTitle)
         {
             LessonTitle = lessonTitle;
         }
 
         #endregion
-        
         
         public string LessonTitle { get; private set; }
 
@@ -28,7 +27,6 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
 
         #endregion
 
-        
         #region Helpers And Validators
 
         public Lesson NewLesson(string lessonTitle)

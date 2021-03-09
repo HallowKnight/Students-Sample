@@ -12,9 +12,10 @@ namespace Students.Domain.AggregatesModel.UserAggregate
     {
         #region Contrustor
 
-        public User( string userName, int? classId,int id = 0) : base(id)
+        public User( string userName, int? classId) 
         {
-            base._Id = id;
+            
+            
 
             UserName = !String.IsNullOrEmpty(userName) ? userName : throw new ArgumentNullException(userName);
 

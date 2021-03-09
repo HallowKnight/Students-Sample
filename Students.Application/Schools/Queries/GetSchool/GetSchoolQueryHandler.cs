@@ -21,7 +21,7 @@ namespace Students.Application.Schools.Queries.GetSchool
 
             return new GetSchoolDto()
             {
-                SchoolId = school._Id,
+                SchoolId = school.Id,
                 SchoolTitle = school.SchoolTitle
             };
         }

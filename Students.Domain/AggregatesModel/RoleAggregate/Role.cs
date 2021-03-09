@@ -10,24 +10,21 @@ namespace Students.Domain.AggregatesModel.RoleAggregate
 
         #region Contsructor
 
-        public Role(string roleTitle,int id = 0) : base(id)
+        public Role(string roleTitle) 
         {
             RoleTitle = roleTitle;
         }
 
         #endregion
         
-        
         public string RoleTitle { get; private set; }
-
-
+        
         #region Relation
 
         public List<UserRoles> UserRoles { get; private set; }
 
         #endregion
-
-
+        
         #region Helpers and Validators
 
         public Role NewRole(string roleTitle)

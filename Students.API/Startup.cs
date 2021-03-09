@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Students.Application.Lessons.Commands.CreateLesson;
 using Students.Domain.AggregatesModel.LessonAggregate;
@@ -24,7 +26,8 @@ using Students.Infrastructure.Repository.Schools.Commands;
 using Students.Infrastructure.Repository.Schools.Queries;
 using Students.Infrastructure.Repository.Users.Commands;
 using Students.Infrastructure.Repository.Users.Queries;
-using Students.Presentation.Hubs;
+using Students.Presentation.Common.Hubs;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Students.Presentation
 {
@@ -49,42 +52,40 @@ namespace Students.Presentation
 
             services.AddMvc()
                 .AddMvcOptions(options => options.EnableEndpointRouting = false);
-            
+
             services.AddSignalR();
-            
-            
-            
-            services.AddDbContext<StudentsDbContext>(options=>
+
+
+            services.AddDbContext<StudentsDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("StudentsConnection"));
             });
             services.AddMediatR(typeof(CreateLessonCommand).GetTypeInfo().Assembly);
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            
+
             services.AddTransient<ILessonQueries, LessonQueries>();
             services.AddTransient<ILessonCommands, LessonCommands>();
-            
+
             services.AddTransient<IUserQueries, UserQueries>();
             services.AddTransient<IUserCommands, UserCommands>();
 
             services.AddTransient<IRoleCommands, RoleCommands>();
             services.AddTransient<IRoleQueries, RoleQueries>();
 
-            services.AddTransient<ISchoolQueries,SchoolQueries>();
+            services.AddTransient<ISchoolQueries, SchoolQueries>();
             services.AddTransient<ISchoolCommands, SchoolCommands>();
-            
-            
-            services.AddSwaggerGen();
 
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseSwagger();
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -106,15 +107,14 @@ namespace Students.Presentation
             {
                 routes.MapRoute(
                     "Default", "{controller=UsersList}/{action=Index}"
-                    );
+                );
             });
-            
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json0", "Student Api");
-            });
-            
-            
+
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json0", "Student Api"); });
+          
         }
+
+
+      
     }
 }

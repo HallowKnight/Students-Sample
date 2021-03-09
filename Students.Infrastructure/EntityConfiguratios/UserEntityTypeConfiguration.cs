@@ -13,8 +13,8 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<User> userConfiguration)
         {
             userConfiguration.ToTable("Users");
-            userConfiguration.HasKey(u=>u._Id);
-            userConfiguration.Property(u => u._Id);
+            userConfiguration.HasKey(u=>u.Id);
+            userConfiguration.Property(u => u.Id);
 
             userConfiguration
                 .Property<string>("UserName")

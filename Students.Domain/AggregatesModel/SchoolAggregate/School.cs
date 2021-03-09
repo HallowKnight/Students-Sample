@@ -12,7 +12,7 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
 
         #region Constructors
 
-        public School( string schoolTitle,int id = 0) : base(id)
+        public School( string schoolTitle) 
         {
             SchoolTitle = !String.IsNullOrEmpty(schoolTitle)?schoolTitle: throw new ArgumentNullException(schoolTitle);
         }
@@ -39,17 +39,21 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
         {
             return new Class(schoolId,classTitle);
         }
-
-        public Class GetClass(int classId)
-        {
-            return Classes.First(c => c._Id == classId);
-        }
+        
 
         public School UpdateSchoolTitle(School school, string newSchoolTitle)
         {
             school.SchoolTitle = newSchoolTitle;
             return school;
         }
+        
+        
+        public Class UpdateClassTitle(int schoolId,string newClassTitle)
+        {
+            Class updatingClass = new Class(schoolId,newClassTitle);
+            return updatingClass;
+        }
+
         
         #endregion
         
