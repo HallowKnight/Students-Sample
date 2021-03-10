@@ -47,7 +47,11 @@
           "dependencies": {
             "MassTransit.AspNetCore": {
               "target": "Package",
-              "version": "[7.1.6, )"
+              "version": "[7.2.0-develop.3323, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.2.0-develop.3323, )"
             },
             "MediatR": {
               "target": "Package",
@@ -151,6 +155,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.0-develop.3323, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[9.0.0, )"

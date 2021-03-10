@@ -27,7 +27,7 @@
           "lib/netstandard2.0/GreenPipes.dll": {}
         }
       },
-      "MassTransit/7.1.6": {
+      "MassTransit/7.2.0-develop.3323": {
         "type": "package",
         "dependencies": {
           "Automatonymous": "5.1.1",
@@ -52,11 +52,11 @@
           "lib/netstandard2.0/MassTransit.dll": {}
         }
       },
-      "MassTransit.AspNetCore/7.1.6": {
+      "MassTransit.AspNetCore/7.2.0-develop.3323": {
         "type": "package",
         "dependencies": {
-          "MassTransit": "7.1.6",
-          "MassTransit.Extensions.DependencyInjection": "7.1.6",
+          "MassTransit": "7.2.0-develop.3323",
+          "MassTransit.Extensions.DependencyInjection": "7.2.0-develop.3323",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "3.1.11",
           "Microsoft.Extensions.Hosting.Abstractions": "3.1.11"
         },
@@ -67,10 +67,10 @@
           "lib/netstandard2.0/MassTransit.AspNetCoreIntegration.dll": {}
         }
       },
-      "MassTransit.Extensions.DependencyInjection/7.1.6": {
+      "MassTransit.Extensions.DependencyInjection/7.2.0-develop.3323": {
         "type": "package",
         "dependencies": {
-          "MassTransit": "7.1.6",
+          "MassTransit": "7.2.0-develop.3323",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1"
         },
         "compile": {
@@ -78,6 +78,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/MassTransit.ExtensionsDependencyInjectionIntegration.dll": {}
+        }
+      },
+      "MassTransit.RabbitMQ/7.2.0-develop.3323": {
+        "type": "package",
+        "dependencies": {
+          "MassTransit": "7.2.0-develop.3323",
+          "RabbitMQ.Client": "6.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/MassTransit.RabbitMqTransport.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MassTransit.RabbitMqTransport.dll": {}
         }
       },
       "MediatR/9.0.0": {
@@ -1739,6 +1752,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "MassTransit.AspNetCore": "7.2.0-develop.3323",
           "MediatR": "9.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.12",
@@ -1814,45 +1828,59 @@
         "lib/netstandard2.0/GreenPipes.xml"
       ]
     },
-    "MassTransit/7.1.6": {
-      "sha512": "Mh9AhlRez0X48/ipjHmCOwYQTu6SQ7L+aeK/UjGoreHD++nKevTEMd20bpsFoGxTbZybaGMjptkrchfxa93hXw==",
+    "MassTransit/7.2.0-develop.3323": {
+      "sha512": "E9bgd0oJD4vtJs7JV7GgiZ9JVStzcqKnnREzdQotYZTkD2U//aOZ4ZWQdCOy5O4ZS0EX+Mj/UQoJBoYGjERcFA==",
       "type": "package",
-      "path": "masstransit/7.1.6",
+      "path": "masstransit/7.2.0-develop.3323",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/MassTransit.dll",
         "lib/netstandard2.0/MassTransit.xml",
-        "masstransit.7.1.6.nupkg.sha512",
+        "masstransit.7.2.0-develop.3323.nupkg.sha512",
         "masstransit.nuspec",
         "mt-logo-small.png"
       ]
     },
-    "MassTransit.AspNetCore/7.1.6": {
-      "sha512": "ggwHhwFzPUwGu60jU9NvpkSde5smg3JUxzJ7nyjmjz5pE3Dn25+JZniG9tCiO6owhuMG8pdqTLeSFyIcuFHSMw==",
+    "MassTransit.AspNetCore/7.2.0-develop.3323": {
+      "sha512": "PM31LazLCtcRlqjtKaKx6uz3XWfG2W51FjX1FVlmCamCkDIRAYiiiDnQf80F7rSJYlhuriG8OyOBXLzXJPgqsA==",
       "type": "package",
-      "path": "masstransit.aspnetcore/7.1.6",
+      "path": "masstransit.aspnetcore/7.2.0-develop.3323",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/MassTransit.AspNetCoreIntegration.dll",
         "lib/netstandard2.0/MassTransit.AspNetCoreIntegration.xml",
-        "masstransit.aspnetcore.7.1.6.nupkg.sha512",
+        "masstransit.aspnetcore.7.2.0-develop.3323.nupkg.sha512",
         "masstransit.aspnetcore.nuspec",
         "mt-logo-small.png"
       ]
     },
-    "MassTransit.Extensions.DependencyInjection/7.1.6": {
-      "sha512": "YQn2YYTvG959K4ci8DFON88uiSd/o3ro3HfFNWywPmZKilul+qNdI8LULBG4gbWWZU/fh6ih2Ho+7WYWJ70xbg==",
+    "MassTransit.Extensions.DependencyInjection/7.2.0-develop.3323": {
+      "sha512": "Aq0+PM25xNhDRRa2HuxoYDHvrp5yn/W4nz4XDR5c4mcMAGyWA0Pb7K5sNQSRa98F7W7RLNdZw8e5f+6o2sogew==",
       "type": "package",
-      "path": "masstransit.extensions.dependencyinjection/7.1.6",
+      "path": "masstransit.extensions.dependencyinjection/7.2.0-develop.3323",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/MassTransit.ExtensionsDependencyInjectionIntegration.dll",
         "lib/netstandard2.0/MassTransit.ExtensionsDependencyInjectionIntegration.xml",
-        "masstransit.extensions.dependencyinjection.7.1.6.nupkg.sha512",
+        "masstransit.extensions.dependencyinjection.7.2.0-develop.3323.nupkg.sha512",
         "masstransit.extensions.dependencyinjection.nuspec",
+        "mt-logo-small.png"
+      ]
+    },
+    "MassTransit.RabbitMQ/7.2.0-develop.3323": {
+      "sha512": "V7l45/ASemk7KWAfTHFV7EwQQQ9eXjLR4DuyhvByBJz7upnipnggFY+rqmwIjpOPaevTmsg1RJyv7U4SpZcC/w==",
+      "type": "package",
+      "path": "masstransit.rabbitmq/7.2.0-develop.3323",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MassTransit.RabbitMqTransport.dll",
+        "lib/netstandard2.0/MassTransit.RabbitMqTransport.xml",
+        "masstransit.rabbitmq.7.2.0-develop.3323.nupkg.sha512",
+        "masstransit.rabbitmq.nuspec",
         "mt-logo-small.png"
       ]
     },
@@ -6321,7 +6349,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "MassTransit.AspNetCore >= 7.1.6",
+      "MassTransit.AspNetCore >= 7.2.0-develop.3323",
+      "MassTransit.RabbitMQ >= 7.2.0-develop.3323",
       "MediatR >= 9.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 9.0.0",
       "Microsoft.AspNet.WebPages >= 3.2.7",
@@ -6381,7 +6410,11 @@
         "dependencies": {
           "MassTransit.AspNetCore": {
             "target": "Package",
-            "version": "[7.1.6, )"
+            "version": "[7.2.0-develop.3323, )"
+          },
+          "MassTransit.RabbitMQ": {
+            "target": "Package",
+            "version": "[7.2.0-develop.3323, )"
           },
           "MediatR": {
             "target": "Package",

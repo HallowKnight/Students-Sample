@@ -171,7 +171,6 @@ C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.TagHelpers.output.cache
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.RazorCoreGenerate.cache
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Razor\Views\UsersList\Index.cshtml.g.cs
-C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Razor\Views\UsersList\MqConsumer.cshtml.g.cs
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.RazorTargetAssemblyInfo.cache
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.RazorTargetAssemblyInfo.cs
@@ -189,3 +188,14 @@ C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Students.Presentation.
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Students.Presentation.pdb
 C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Students.Presentation.Views.pdb
 C:\Projects\Students\Students.API\obj\Debug\netcoreapp3.1\Students.Presentation.csproj.CopyComplete
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Automatonymous.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\GreenPipes.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\MassTransit.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\MassTransit.AspNetCoreIntegration.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\MassTransit.RabbitMqTransport.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Projects\Students\Students.API\bin\Debug\netcoreapp3.1\NewId.dll

@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MassTransit;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Domain.Events;
-using Students.Domain.Events.UsersChanged;
+using Students.Domain.Contracts;
 
 namespace Students.Application.Users.Commands.UpdateUser
 {
@@ -11,29 +11,22 @@ namespace Students.Application.Users.Commands.UpdateUser
     {
         
         private readonly IUserCommands _userCommands;
-        private readonly IMediator _mediator;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public UpdateStudentCommandHandler(IUserCommands userCommands, IMediator mediator)
+        public UpdateStudentCommandHandler(IUserCommands userCommands, IPublishEndpoint publishEndpoint)
         {
             _userCommands = userCommands;
-            _mediator = mediator;
-            
+            _publishEndpoint = publishEndpoint;
         }
-        
         public async Task<int> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
 
             await _userCommands.UpdateUserAsync(request.UserNewName,request.UserId);
-
-            await _mediator.Publish(new UsersChangedEvent());
-
-
-            request.transctionCount += 1;
-
-
-
-            return request.transctionCount;
+            await _publishEndpoint.Publish<UsersChanged>(request);
             
+            request.transctionCount += 1;
+            
+            return request.transctionCount;
         }
     }
 }

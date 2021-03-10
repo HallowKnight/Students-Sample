@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MassTransit;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Domain.Events;
-using Students.Domain.Events.UsersChanged;
+using Students.Domain.Contracts;
 using Students.Infrastructure.Persistence.DBContext;
 
 namespace Students.Application.Users.Commands.CreateUser
@@ -12,14 +12,14 @@ namespace Students.Application.Users.Commands.CreateUser
     {
 
         private readonly IUserCommands _userCommands;
-        private readonly IMediator _mediator;
         private readonly StudentsDbContext _context;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public CreateStudentCommandHandler(IUserCommands userCommands, IMediator mediator, StudentsDbContext context)
+        public CreateStudentCommandHandler(IUserCommands userCommands,  StudentsDbContext context, IPublishEndpoint publishEndpoint)
         {
             _userCommands = userCommands;
-            _mediator = mediator;
             _context = context;
+            _publishEndpoint = publishEndpoint;
         }
         
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -27,8 +27,8 @@ namespace Students.Application.Users.Commands.CreateUser
 
             await _userCommands.AddUserAsync(request.UserName);
             await _context.SaveChangesAsync();
-            await _mediator.Publish(new UsersChangedEvent());
-            
+            await _publishEndpoint.Publish<UsersChanged>(request);
+
             request.transctionCount += 1;
             
             return request.transctionCount;
