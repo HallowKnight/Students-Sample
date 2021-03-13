@@ -1,2 +1,2 @@
-git rm --cached Scripts/*.js
-git rm --cached Scripts/*.js.map
+*.js
+*.js.map
