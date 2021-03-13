@@ -1,2 +1,2 @@
-git rm --cached TypeScriptTest.Content/Scripts/*.js
-git rm --cached TypeScriptTest.Content/Scripts/*.js.map
+git rm --cached Scripts/*.js
+git rm --cached Scripts/*.js.map
