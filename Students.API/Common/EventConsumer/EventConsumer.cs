@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.SignalR;
 using Students.Application.Users.Queries.GetAllUsers;

@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MassTransit;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
 using Students.Domain.Contracts;

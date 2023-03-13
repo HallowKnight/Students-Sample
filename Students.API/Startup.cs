@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

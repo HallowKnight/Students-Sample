@@ -52,6 +52,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[7.2.0-develop.3323, )"
+            },
             "MassTransit.AspNetCore": {
               "target": "Package",
               "version": "[7.2.0-develop.3323, )"
