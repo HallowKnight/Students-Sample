@@ -39,7 +39,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<GetRoleDto>> GetRoleByIdAsync(int roleId)
         {
-            return await _mediator.Send(new GetRoleQuery() {RoleId = roleId});
+            return await _mediator.Send(new GetRoleQuery { RoleId = roleId });
         }
 
 
@@ -49,7 +49,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<GetRoleUsersDto>>> GetRoleUsersAsync(int roleId)
         {
-            return await _mediator.Send(new GetRoleUsersQuery() {RoleId = roleId});
+            return await _mediator.Send(new GetRoleUsersQuery { RoleId = roleId });
         }
 
         [HttpGet]
@@ -58,7 +58,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<GetUserRolesDto>>> GetUserRolesAsync(int userId)
         {
-            return await _mediator.Send(new GetUserRolesQuery() {UserId = userId});
+            return await _mediator.Send(new GetUserRolesQuery { UserId = userId });
         }
 
         [HttpPost]
@@ -68,7 +68,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         public async Task<ActionResult<int>> AddRoleAsync([FromForm] string roleTitle)
         {
-            return await _mediator.Send(new CreateRoleCommand() {RoleTitle = roleTitle});
+            return await _mediator.Send(new CreateRoleCommand { RoleTitle = roleTitle });
         }
 
         [HttpPut]
@@ -78,7 +78,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         public async Task<ActionResult<int>> UpdateRole([FromForm] int roleId, [FromForm] string newRoleTitle)
         {
-            return await _mediator.Send(new UpdateRoleCommand() {NewTitle = newRoleTitle, RoleId = roleId});
+            return await _mediator.Send(new UpdateRoleCommand { NewTitle = newRoleTitle, RoleId = roleId });
         }
 
         [HttpDelete]
@@ -88,7 +88,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         public async Task<ActionResult<int>> DeleteRole([FromForm] int roleId)
         {
-            return await _mediator.Send(new DeleteRoleCommand() {RoleId = roleId});
+            return await _mediator.Send(new DeleteRoleCommand { RoleId = roleId });
         }
     }
 }

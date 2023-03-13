@@ -15,3 +15,13 @@ C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.Ass
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.dll
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.pdb
 C:\Projects\Students\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csprojAssemblyReference.cache
+D:\Temp\Students-Sample\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.deps.json
+D:\Temp\Students-Sample\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.dll
+D:\Temp\Students-Sample\Students.Domain\bin\Debug\netcoreapp3.1\Students.Domain.pdb
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csproj.AssemblyReference.cache
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfoInputs.cache
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.AssemblyInfo.cs
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.csproj.CoreCompileInputs.cache
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.dll
+D:\Temp\Students-Sample\Students.Domain\obj\Debug\netcoreapp3.1\Students.Domain.pdb

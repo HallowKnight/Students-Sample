@@ -45,7 +45,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<GetUserDto>> GetUserByIdAsync(int userId)
         {
-            return await _mediator.Send(new GetUserQuery() {UserId = userId});
+            return await _mediator.Send(new GetUserQuery { UserId = userId });
         }
 
         [HttpPost]
@@ -53,7 +53,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<int>> AddUserAsync([FromForm] string userName)
         {
-            var result = await _mediator.Send(new CreateUserCommand() {UserName = userName});
+            int result = await _mediator.Send(new CreateUserCommand { UserName = userName });
             return result;
         }
 
@@ -63,7 +63,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<int>> AddLessonToUser([FromForm] int userId, [FromForm] int lessonId)
         {
-            return await _mediator.Send(new AddUserLessonCommand() {LessonId = lessonId, UserId = userId});
+            return await _mediator.Send(new AddUserLessonCommand { LessonId = lessonId, UserId = userId });
         }
 
         [HttpPost]
@@ -72,7 +72,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> AddRoleToUserAsync([FromForm] int userId, [FromForm] int roleId)
         {
-            return await _mediator.Send(new AddUserRoleCommand() {UserId = userId, RoleId = roleId});
+            return await _mediator.Send(new AddUserRoleCommand { UserId = userId, RoleId = roleId });
         }
 
         [HttpPut]
@@ -81,7 +81,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> UpdateUserByUserId([FromForm] int userId, [FromForm] string studentName)
         {
-            var result = await _mediator.Send(new UpdateUserCommand() {UserId = userId, UserNewName = studentName});
+            int result = await _mediator.Send(new UpdateUserCommand { UserId = userId, UserNewName = studentName });
             return result;
         }
 
@@ -92,7 +92,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> RemoveRoleFromUser([FromForm] int userId, [FromForm] int roleId)
         {
-            return await _mediator.Send(new RemoveUserRoleCommand() {UserId = userId, RoleId = roleId});
+            return await _mediator.Send(new RemoveUserRoleCommand { UserId = userId, RoleId = roleId });
         }
 
         [HttpPut]
@@ -100,18 +100,17 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<int>> RemoveLessonFromUser(int userId, int lessonId)
         {
-            return await _mediator.Send(new RemoveUserLessonCommand() {LessonId = lessonId, UserId = userId});
+            return await _mediator.Send(new RemoveUserLessonCommand { LessonId = lessonId, UserId = userId });
         }
+
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<int>> DeleteUser(int userId)
         {
-            var result = await _mediator.Send(new DeleteUserCommand() {UserId = userId});
-            
+            int result = await _mediator.Send(new DeleteUserCommand { UserId = userId });
+
             return result;
         }
-
-      
     }
 }

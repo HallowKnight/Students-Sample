@@ -1,6 +1,6 @@
-﻿using Students.Infrastructure.Persistence.DBContext;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Students.Domain.Common;
+using Students.Infrastructure.Persistence.DBContext;
 
 namespace Students.Infrastructure.Persistence.UnitOfWork
 {
@@ -17,11 +17,8 @@ namespace Students.Infrastructure.Persistence.UnitOfWork
 
         public int SaveChanges()
         {
-
             _context.SaveChanges();
             return _context.SaveChanges();
-            
-
         }
 
         public async Task<int> SaveChangesAsync()

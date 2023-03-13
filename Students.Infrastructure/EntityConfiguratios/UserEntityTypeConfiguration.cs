@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Students.Domain.AggregatesModel.LessonAggregate;
-using Students.Domain.AggregatesModel.SchoolAggregate;
 using Students.Domain.AggregatesModel.UserAggregate;
 
 namespace Students.Infrastructure.EntityConfiguratios
@@ -13,28 +9,25 @@ namespace Students.Infrastructure.EntityConfiguratios
         public void Configure(EntityTypeBuilder<User> userConfiguration)
         {
             userConfiguration.ToTable("Users");
-            userConfiguration.HasKey(u=>u.Id);
+            userConfiguration.HasKey(u => u.Id);
             userConfiguration.Property(u => u.Id);
 
             userConfiguration
                 .Property<string>("UserName")
-                .IsRequired(true);
-
+                .IsRequired();
 
 
             userConfiguration
-                .HasMany<UserRoles>(u => u.UserRoles)
+                .HasMany(u => u.UserRoles)
                 .WithOne(ur => ur.User);
 
-            userConfiguration.HasMany<UserLessons>(u => u.UserLessons)
+            userConfiguration.HasMany(u => u.UserLessons)
                 .WithOne(ul => ul.User);
-            
-            userConfiguration
-                .HasOne<Class>(u=>u.Class)
-                .WithMany(c=>c.Users)
-                .HasForeignKey(u=>u.ClassId);
 
-            
+            userConfiguration
+                .HasOne(u => u.Class)
+                .WithMany(c => c.Users)
+                .HasForeignKey(u => u.ClassId);
         }
     }
 }

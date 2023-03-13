@@ -8,18 +8,17 @@ namespace Students.Infrastructure.EntityConfiguratios
     {
         public void Configure(EntityTypeBuilder<School> schoolConfigurations)
         {
-
             schoolConfigurations.ToTable("Schools");
             schoolConfigurations.HasKey(s => s.Id);
             schoolConfigurations.Property(s => s.Id);
-            
+
             schoolConfigurations
                 .Property<string>("SchoolTitle")
-                .IsRequired(true);
+                .IsRequired();
 
             schoolConfigurations
                 .HasMany(s => s.Classes)
-                .WithOne(c => c.School); 
+                .WithOne(c => c.School);
         }
     }
 }

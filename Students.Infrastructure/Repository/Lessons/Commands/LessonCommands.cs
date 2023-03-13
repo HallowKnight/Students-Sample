@@ -7,20 +7,19 @@ namespace Students.Infrastructure.Repository.Lessons.Commands
 {
     public class LessonCommands : ILessonCommands
     {
-        
         private readonly StudentsDbContext _context;
 
         public LessonCommands(StudentsDbContext context)
         {
             _context = context;
         }
-        
+
         public async Task AddLessonAsync(string lessonTitle)
         {
             await _context.Lessons.AddAsync(new Lesson(lessonTitle));
         }
 
-        public async Task UpdateLessonAsync(int lessonId,string lessonTitle)
+        public async Task UpdateLessonAsync(int lessonId, string lessonTitle)
         {
             Lesson lesson = await _context.Lessons.FirstOrDefaultAsync(l => l.Id == lessonId);
             lesson = lesson.UpdateLessonTitle(lesson, lessonTitle);
@@ -31,7 +30,5 @@ namespace Students.Infrastructure.Repository.Lessons.Commands
         {
             _context.Lessons.Remove(await _context.Lessons.FirstOrDefaultAsync(l => l.Id == lessonId));
         }
-
-
     }
 }

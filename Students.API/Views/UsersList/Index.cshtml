@@ -1,39 +1,39 @@
 ﻿@using Students.Application.Users.Queries.GetAllUsers
-@model List<GetAllUsersDto>
+@model List<Students.Application.Users.Queries.GetAllUsers.GetAllUsersDto>
 
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>@ViewData["Title"]</title>
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    </head>
-    <body>
-    
-        <table class="table table-sm table-bordered" id="usersList">
-            <thead>
-                <tr>
-                    <th>User ID</th>
-                    <th>User Name</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                @foreach (GetAllUsersDto user in Model)
-                {
-                    <tr>
-                        <td>@user.UserId</td>
-                        <td>@user.UserName</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    
-        <script src="/js/bootstrap.js"></script>
-        <script type="text/javascript" src="/js/lib/signalr.js"></script>
-    
-    <script type="text/javascript">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+</head>
+<body>
+
+<table class="table table-sm table-bordered" id="usersList">
+    <thead>
+    <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+    </tr>
+    </thead>
+    <tbody id="tableBody">
+    @foreach (GetAllUsersDto user in Model)
+    {
+        <tr>
+            <td>@user.UserId</td>
+            <td>@user.UserName</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<script src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/lib/signalr.js"></script>
+
+<script type="text/javascript">
                 
                 
                 
@@ -76,6 +76,5 @@
                
         
         </script>
-    </body>
+</body>
 </html>
-

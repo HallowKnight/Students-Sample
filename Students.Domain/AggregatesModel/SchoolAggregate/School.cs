@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net.NetworkInformation;
 using Students.Domain.Common;
 
 namespace Students.Domain.AggregatesModel.SchoolAggregate
 {
-    public class School : Entity,IAggregateRoot
+    public class School : Entity, IAggregateRoot
     {
-
         #region Constructors
 
-        public School( string schoolTitle) 
+        public School(string schoolTitle)
         {
-            SchoolTitle = !String.IsNullOrEmpty(schoolTitle)?schoolTitle: throw new ArgumentNullException(schoolTitle);
+            SchoolTitle = !string.IsNullOrEmpty(schoolTitle)
+                ? schoolTitle
+                : throw new ArgumentNullException(schoolTitle);
         }
 
         #endregion
-        
-        
+
+
         public string SchoolTitle { get; private set; }
 
         #region Relations
@@ -34,29 +32,26 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
         {
             return new School(schoolTitle);
         }
-        
-        public Class NewClass(string classTitle,int schoolId)
+
+        public Class NewClass(string classTitle, int schoolId)
         {
-            return new Class(schoolId,classTitle);
+            return new Class(schoolId, classTitle);
         }
-        
+
 
         public School UpdateSchoolTitle(School school, string newSchoolTitle)
         {
             school.SchoolTitle = newSchoolTitle;
             return school;
         }
-        
-        
-        public Class UpdateClassTitle(int schoolId,string newClassTitle)
+
+
+        public Class UpdateClassTitle(int schoolId, string newClassTitle)
         {
-            Class updatingClass = new Class(schoolId,newClassTitle);
+            Class updatingClass = new Class(schoolId, newClassTitle);
             return updatingClass;
         }
 
-        
         #endregion
-        
-    
     }
 }

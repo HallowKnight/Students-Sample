@@ -41,9 +41,9 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<GetSchoolDto>> GetSchoolByIdAsync( int schoolId)
+        public async Task<ActionResult<GetSchoolDto>> GetSchoolByIdAsync(int schoolId)
         {
-            return await _mediator.Send(new GetSchoolQuery() {SchoolId = schoolId});
+            return await _mediator.Send(new GetSchoolQuery { SchoolId = schoolId });
         }
 
         [HttpGet]
@@ -59,18 +59,18 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<GetClassDto>> GetClassByIdAsync( int classId)
+        public async Task<ActionResult<GetClassDto>> GetClassByIdAsync(int classId)
         {
-            return await _mediator.Send(new GetClassQuery() {ClassId = classId});
+            return await _mediator.Send(new GetClassQuery { ClassId = classId });
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<GetSchoolClassesDto>>> GetSchoolClassesAsync( int schoolId)
+        public async Task<ActionResult<List<GetSchoolClassesDto>>> GetSchoolClassesAsync(int schoolId)
         {
-            return await _mediator.Send(new GetSchoolClassesQuery() {SchoolId = schoolId});
+            return await _mediator.Send(new GetSchoolClassesQuery { SchoolId = schoolId });
         }
 
         [HttpPost]
@@ -80,7 +80,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<int>> CreateSchoolAsync([FromForm] string schoolTitle)
         {
-            return await _mediator.Send(new CreateSchoolCommand() {SchoolTitle = schoolTitle});
+            return await _mediator.Send(new CreateSchoolCommand { SchoolTitle = schoolTitle });
         }
 
         [HttpPut]
@@ -88,9 +88,9 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<int>> UpdateSchool([FromForm] string schoolTitle,[FromForm] int schoolId)
+        public async Task<ActionResult<int>> UpdateSchool([FromForm] string schoolTitle, [FromForm] int schoolId)
         {
-            return await _mediator.Send(new UpdateSchoolCommand() {SchoolTitle = schoolTitle,SchoolId = schoolId});
+            return await _mediator.Send(new UpdateSchoolCommand { SchoolTitle = schoolTitle, SchoolId = schoolId });
         }
 
         [HttpDelete]
@@ -100,7 +100,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<int>> DeleteSchool([FromForm] int schoolId)
         {
-            return await _mediator.Send(new DeleteSchoolCommand() {SchoolId = schoolId});
+            return await _mediator.Send(new DeleteSchoolCommand { SchoolId = schoolId });
         }
 
         [HttpPost]
@@ -108,9 +108,9 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<int>> AddClassAsync([FromForm] string classTitle,[FromForm]int schoolId)
+        public async Task<ActionResult<int>> AddClassAsync([FromForm] string classTitle, [FromForm] int schoolId)
         {
-            return await _mediator.Send(new CreateClassCommand() {ClassTitle = classTitle,SchoolId = schoolId});
+            return await _mediator.Send(new CreateClassCommand { ClassTitle = classTitle, SchoolId = schoolId });
         }
 
         [HttpPut]
@@ -118,9 +118,9 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<int>> UpdateClass([FromForm] string classTitle,[FromForm] int classId)
+        public async Task<ActionResult<int>> UpdateClass([FromForm] string classTitle, [FromForm] int classId)
         {
-            return await _mediator.Send(new UpdateClassCommand() {ClassTitle = classTitle,ClassId = classId});
+            return await _mediator.Send(new UpdateClassCommand { ClassTitle = classTitle, ClassId = classId });
         }
 
         [HttpDelete]
@@ -130,7 +130,7 @@ namespace Students.Presentation.ApiControllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<int>> DeleteClass([FromForm] int classId)
         {
-            return await _mediator.Send(new DeteleClassCommand() {ClassId = classId});
+            return await _mediator.Send(new DeteleClassCommand { ClassId = classId });
         }
     }
 }

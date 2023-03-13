@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Students.Domain.AggregatesModel.RoleAggregate;
-using Students.Domain.AggregatesModel.UserAggregate;
 
 namespace Students.Infrastructure.EntityConfiguratios
 {
@@ -9,17 +8,16 @@ namespace Students.Infrastructure.EntityConfiguratios
     {
         public void Configure(EntityTypeBuilder<Role> roleConfigurations)
         {
-
             roleConfigurations.ToTable("Roles");
             roleConfigurations.HasKey(r => r.Id);
             roleConfigurations.Property(r => r.Id);
-           
-            roleConfigurations
-                .Property<string>("RoleTitle")
-                .IsRequired(true);
 
             roleConfigurations
-                .HasMany<UserRoles>(r => r.UserRoles)
+                .Property<string>("RoleTitle")
+                .IsRequired();
+
+            roleConfigurations
+                .HasMany(r => r.UserRoles)
                 .WithOne(ur => ur.Role);
         }
     }

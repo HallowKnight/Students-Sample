@@ -1,37 +1,43 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Students\\Students.Application\\Students.Application.csproj": {}
+    "D:\\Temp\\Students-Sample\\Students.Application\\Students.Application.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Students\\Students.Application\\Students.Application.csproj": {
+    "D:\\Temp\\Students-Sample\\Students.Application\\Students.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Students\\Students.Application\\Students.Application.csproj",
+        "projectUniqueName": "D:\\Temp\\Students-Sample\\Students.Application\\Students.Application.csproj",
         "projectName": "Students.Application",
-        "projectPath": "C:\\Projects\\Students\\Students.Application\\Students.Application.csproj",
-        "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Students\\Students.Application\\obj\\",
+        "projectPath": "D:\\Temp\\Students-Sample\\Students.Application\\Students.Application.csproj",
+        "packagesPath": "C:\\Users\\Dev03-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Temp\\Students-Sample\\Students.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Programmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dev03-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj": {
-                "projectPath": "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj"
+              "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj": {
+                "projectPath": "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj"
               },
-              "C:\\Projects\\Students\\Students.Infrastructure\\Students.Infrastructure.csproj": {
-                "projectPath": "C:\\Projects\\Students\\Students.Infrastructure\\Students.Infrastructure.csproj"
+              "D:\\Temp\\Students-Sample\\Students.Infrastructure\\Students.Infrastructure.csproj": {
+                "projectPath": "D:\\Temp\\Students-Sample\\Students.Infrastructure\\Students.Infrastructure.csproj"
               }
             }
           }
@@ -44,6 +50,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MassTransit.AspNetCore": {
               "target": "Package",
@@ -81,32 +88,38 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj": {
+    "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj",
+        "projectUniqueName": "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj",
         "projectName": "Students.Domain",
-        "projectPath": "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj",
-        "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Students\\Students.Domain\\obj\\",
+        "projectPath": "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj",
+        "packagesPath": "C:\\Users\\Dev03-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Temp\\Students-Sample\\Students.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Programmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dev03-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -118,6 +131,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MediatR": {
               "target": "Package",
@@ -147,35 +161,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projects\\Students\\Students.Infrastructure\\Students.Infrastructure.csproj": {
+    "D:\\Temp\\Students-Sample\\Students.Infrastructure\\Students.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Students\\Students.Infrastructure\\Students.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Temp\\Students-Sample\\Students.Infrastructure\\Students.Infrastructure.csproj",
         "projectName": "Students.Infrastructure",
-        "projectPath": "C:\\Projects\\Students\\Students.Infrastructure\\Students.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Students\\Students.Infrastructure\\obj\\",
+        "projectPath": "D:\\Temp\\Students-Sample\\Students.Infrastructure\\Students.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Dev03-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Temp\\Students-Sample\\Students.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Programmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dev03-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj": {
-                "projectPath": "C:\\Projects\\Students\\Students.Domain\\Students.Domain.csproj"
+              "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj": {
+                "projectPath": "D:\\Temp\\Students-Sample\\Students.Domain\\Students.Domain.csproj"
               }
             }
           }
@@ -188,6 +208,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MediatR": {
               "target": "Package",
@@ -227,7 +248,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

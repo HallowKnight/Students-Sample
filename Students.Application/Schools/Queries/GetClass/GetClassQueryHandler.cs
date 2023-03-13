@@ -16,9 +16,9 @@ namespace Students.Application.Schools.Queries.GetClass
 
         public async Task<GetClassDto> Handle(GetClassQuery request, CancellationToken cancellationToken)
         {
-            var currentClass =await _schoolQueries.GetClassByIdAsync(request.ClassId);
+            Class currentClass = await _schoolQueries.GetClassByIdAsync(request.ClassId);
 
-            return new GetClassDto()
+            return new GetClassDto
             {
                 ClassId = currentClass.Id,
                 ClassTitle = currentClass.ClassTitle

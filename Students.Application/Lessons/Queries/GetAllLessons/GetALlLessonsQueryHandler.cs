@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -6,7 +7,7 @@ using Students.Domain.AggregatesModel.LessonAggregate;
 
 namespace Students.Application.Lessons.Queries.GetAllLessons
 {
-    public class GetALlLessonsQueryHandler : IRequestHandler<GetAllLessonsQuery,List<GetAllLessonsDto>>
+    public class GetALlLessonsQueryHandler : IRequestHandler<GetAllLessonsQuery, List<GetAllLessonsDto>>
     {
         private readonly ILessonQueries _lessonQueries;
 
@@ -14,24 +15,13 @@ namespace Students.Application.Lessons.Queries.GetAllLessons
         {
             _lessonQueries = lessonQueries;
         }
-        
-        public async Task<List<GetAllLessonsDto>> Handle(GetAllLessonsQuery request, CancellationToken cancellationToken)
+
+        public async Task<List<GetAllLessonsDto>> Handle(GetAllLessonsQuery request,
+            CancellationToken cancellationToken)
         {
-
-            List<Lesson> lessons =await _lessonQueries.GetAllLessonsAsync();
-            List<GetAllLessonsDto> lessonsList = new List<GetAllLessonsDto>();
-            
-            
-            foreach (Lesson l in lessons)
-            { 
-                lessonsList.Add(new GetAllLessonsDto()
-                {
-                    LessonId = l.Id,
-                    LessonTitle = l.LessonTitle
-                });
-            }
-
-            return lessonsList;
+            List<Lesson> lessons = await _lessonQueries.GetAllLessonsAsync();
+            return lessons.Select(lesson => new GetAllLessonsDto
+                { LessonId = lesson.Id, LessonTitle = lesson.LessonTitle }).ToList();
         }
     }
 }

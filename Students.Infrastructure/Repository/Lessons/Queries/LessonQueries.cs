@@ -9,8 +9,8 @@ namespace Students.Infrastructure.Repository.Lessons.Queries
 {
     public class LessonQueries : ILessonQueries
     {
-        
         private readonly StudentsDbContext _context;
+
         public LessonQueries(StudentsDbContext context)
         {
             _context = context;
@@ -25,14 +25,12 @@ namespace Students.Infrastructure.Repository.Lessons.Queries
         {
             return await _context.Lessons.SingleOrDefaultAsync(l => l.Id == lessonId);
         }
-        
-        public async Task<List<string>>  GetUserLessonsAsync(int userId)
-        {
 
+        public async Task<List<string>> GetUserLessonsAsync(int userId)
+        {
             List<string> lessonsTitles = await _context.UserLessons.Where(ul => ul.UserId == userId)
                 .Select(ul => ul.Lesson.LessonTitle).ToListAsync();
             return lessonsTitles;
         }
-
     }
 }

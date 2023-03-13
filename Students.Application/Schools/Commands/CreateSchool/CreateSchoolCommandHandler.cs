@@ -5,7 +5,7 @@ using Students.Domain.AggregatesModel.SchoolAggregate;
 
 namespace Students.Application.Schools.Commands.CreateSchool
 {
-    public class CreateSchoolCommandhandler : IRequestHandler<CreateSchoolCommand,int>
+    public class CreateSchoolCommandhandler : IRequestHandler<CreateSchoolCommand, int>
     {
         private readonly ISchoolCommands _schoolCommands;
 
@@ -13,13 +13,13 @@ namespace Students.Application.Schools.Commands.CreateSchool
         {
             _schoolCommands = schoolCommands;
         }
-        
+
         public async Task<int> Handle(CreateSchoolCommand request, CancellationToken cancellationToken)
         {
             await _schoolCommands.CreateSchoolAsync(request.SchoolTitle);
-            request.transctionCount++;
+            request.TransactionCount++;
 
-            return request.transctionCount;
+            return request.TransactionCount;
         }
     }
 }

@@ -4,11 +4,6 @@ namespace Students.Domain.Common
 {
     public abstract class Entity
     {
-       
-        
-        [Key]
-        public int Id { get; }
-
-        
+        [Key] public int Id { get; }
     }
 }

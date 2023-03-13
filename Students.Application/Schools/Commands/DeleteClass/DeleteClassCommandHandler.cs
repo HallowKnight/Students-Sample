@@ -5,7 +5,7 @@ using Students.Domain.AggregatesModel.SchoolAggregate;
 
 namespace Students.Application.Schools.Commands.DeleteClass
 {
-    public class DeleteClassCommandHandler :IRequestHandler<DeteleClassCommand,int>
+    public class DeleteClassCommandHandler : IRequestHandler<DeteleClassCommand, int>
     {
         private readonly ISchoolCommands _schoolCommands;
 
@@ -13,13 +13,13 @@ namespace Students.Application.Schools.Commands.DeleteClass
         {
             _schoolCommands = schoolCommands;
         }
-        
+
         public async Task<int> Handle(DeteleClassCommand request, CancellationToken cancellationToken)
         {
             await _schoolCommands.DeleteClassAsync(request.ClassId);
-            request.transctionCount++;
+            request.TransactionCount++;
 
-            return request.transctionCount;
+            return request.TransactionCount;
         }
     }
 }

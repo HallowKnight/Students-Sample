@@ -22,13 +22,11 @@ namespace Students.Application.Schools.Queries.GetAllSchools
             List<GetAllSchoolsDto> schoolsDtos = new List<GetAllSchoolsDto>();
 
             foreach (School school in schools)
-            {
-                schoolsDtos.Add(new GetAllSchoolsDto()
+                schoolsDtos.Add(new GetAllSchoolsDto
                 {
                     SchoolId = school.Id,
-                    SchoolTitle = school.SchoolTitle,
+                    SchoolTitle = school.SchoolTitle
                 });
-            }
 
             return schoolsDtos;
         }

@@ -1,14 +1,12 @@
-﻿using System.Text.RegularExpressions;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.SchoolAggregate;
 
 namespace Students.Application.Schools.Commands.UpdateSchool
 {
-    public class UpdateSchoolCommandHandler : IRequestHandler<UpdateSchoolCommand,int>
+    public class UpdateSchoolCommandHandler : IRequestHandler<UpdateSchoolCommand, int>
     {
-
         private readonly ISchoolCommands _schoolCommands;
 
         public UpdateSchoolCommandHandler(ISchoolCommands schoolCommands)
@@ -18,10 +16,10 @@ namespace Students.Application.Schools.Commands.UpdateSchool
 
         public async Task<int> Handle(UpdateSchoolCommand request, CancellationToken cancellationToken)
         {
-            await _schoolCommands.UpdateSchoolAsync(request.SchoolId,request.SchoolTitle);
-            request.transctionCount++;
+            await _schoolCommands.UpdateSchoolAsync(request.SchoolId, request.SchoolTitle);
+            request.TransactionCount++;
 
-            return request.transctionCount;
+            return request.TransactionCount;
         }
     }
 }

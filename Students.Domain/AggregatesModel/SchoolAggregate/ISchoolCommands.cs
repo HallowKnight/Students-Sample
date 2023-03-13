@@ -10,12 +10,10 @@ namespace Students.Domain.AggregatesModel.SchoolAggregate
 
         Task UpdateSchoolAsync(int schoolId, string schoolTitle);
 
-        Task CreateClassAsync(string classTitle,int schoolId);
+        Task CreateClassAsync(string classTitle, int schoolId);
 
-        Task UpdateClassAsync(int classId,int schoolId,string classTitle);
-        
+        Task UpdateClassAsync(int classId, int schoolId, string classTitle);
+
         Task DeleteClassAsync(int classId);
-
-
     }
 }

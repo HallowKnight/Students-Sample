@@ -10,14 +10,13 @@ namespace Students.Infrastructure.Repository.Roles.Queries
 {
     public class RoleQueries : IRoleQueries
     {
-
         private readonly StudentsDbContext _context;
 
         public RoleQueries(StudentsDbContext context)
         {
             _context = context;
         }
-        
+
         public async Task<Role> GetRoleByIdAsync(int roleId)
         {
             return await _context.Roles.FirstAsync(r => r.Id == roleId);

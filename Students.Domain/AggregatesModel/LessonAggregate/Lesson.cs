@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 using Students.Domain.AggregatesModel.UserAggregate;
 using Students.Domain.Common;
 
 namespace Students.Domain.AggregatesModel.LessonAggregate
 {
-    public class Lesson : Entity,IAggregateRoot
+    public class Lesson : Entity, IAggregateRoot
     {
-
         #region Constructor
 
         public Lesson(string lessonTitle)
@@ -18,7 +14,7 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
         }
 
         #endregion
-        
+
         public string LessonTitle { get; private set; }
 
         #region Relation
@@ -39,8 +35,7 @@ namespace Students.Domain.AggregatesModel.LessonAggregate
             lesson.LessonTitle = newLessonTitle;
             return lesson;
         }
-        
-        #endregion
 
+        #endregion
     }
 }

@@ -11,10 +11,10 @@ namespace Students.Infrastructure.EntityConfiguratios
             classConfigurations.ToTable("Classes");
             classConfigurations.HasKey(c => c.Id);
             classConfigurations.Property(c => c.Id);
-            
+
             classConfigurations
                 .Property<string>("ClassTitle")
-                .IsRequired(true);
+                .IsRequired();
 
             classConfigurations
                 .HasOne(c => c.School)

@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Students.Domain.AggregatesModel.LessonAggregate;
 using Students.Domain.AggregatesModel.UserAggregate;
-
 
 namespace Students.Infrastructure.EntityConfiguratios
 {
@@ -12,17 +10,17 @@ namespace Students.Infrastructure.EntityConfiguratios
         {
             userLessonsConfigurations.ToTable("UserLessons");
             userLessonsConfigurations.HasKey(ul => ul.Id);
-            userLessonsConfigurations.Property(ul => ul.Id)/*.UseSqlServerIdentityColumn()*/;
+            userLessonsConfigurations.Property(ul => ul.Id) /*.UseSqlServerIdentityColumn()*/;
 
             userLessonsConfigurations
-                .HasOne<User>(ul => ul.User)
+                .HasOne(ul => ul.User)
                 .WithMany(u => u.UserLessons)
-                .HasForeignKey(ul=>ul.UserId);
+                .HasForeignKey(ul => ul.UserId);
 
             userLessonsConfigurations
-                .HasOne<Lesson>(ul => ul.Lesson)
+                .HasOne(ul => ul.Lesson)
                 .WithMany(l => l.UserLessons)
-                .HasForeignKey(l=>l.LessonId);
+                .HasForeignKey(l => l.LessonId);
         }
     }
 }

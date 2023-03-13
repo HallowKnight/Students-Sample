@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.LessonAggregate;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Domain.Common;
 
 namespace Students.Application.Lessons.Queries.GetUserLessons
 {
@@ -11,21 +10,18 @@ namespace Students.Application.Lessons.Queries.GetUserLessons
     {
         private readonly ILessonQueries _lessonQueries;
         private readonly IUserQueries _studentQueries;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public GetUserLessonsQueryHandler(ILessonQueries lessonQueries,IUserQueries studentQueries,IUnitOfWork unitOfWork)
+        public GetUserLessonsQueryHandler(ILessonQueries lessonQueries, IUserQueries studentQueries)
         {
             _lessonQueries = lessonQueries;
             _studentQueries = studentQueries;
-            _unitOfWork = unitOfWork;
         }
-        
+
         public async Task<GetUserLessonsDto> Handle(GetUserLessonsQuery request, CancellationToken cancellationToken)
         {
-
             User user = await _studentQueries.GetUserByIdAsync(request.UserId);
 
-            GetUserLessonsDto lessonsDto = new GetUserLessonsDto()
+            GetUserLessonsDto lessonsDto = new GetUserLessonsDto
             {
                 UserId = user.Id,
                 UserName = user.UserName,

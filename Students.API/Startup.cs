@@ -1,15 +1,10 @@
-﻿using System;
-using System.Reflection;
-using MassTransit;
-using MassTransit.MultiBus;
+﻿using System.Reflection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Students.Application.Lessons.Commands.CreateLesson;
 using Students.Domain.AggregatesModel.LessonAggregate;
@@ -29,7 +24,6 @@ using Students.Infrastructure.Repository.Users.Commands;
 using Students.Infrastructure.Repository.Users.Queries;
 using Students.Presentation.Common.EventConsumer;
 using Students.Presentation.Common.Hubs;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Students.Presentation
 {
@@ -45,29 +39,28 @@ namespace Students.Presentation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             #region Mvc Options
-            
+
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize);
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize);
 
             services.AddMvc()
                 .AddMvcOptions(options => options.EnableEndpointRouting = false);
-            
+
             #endregion
 
             #region Context Options
-            
+
             services.AddDbContext<StudentsDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("StudentsConnection"));
             });
-            
+
             #endregion
-            
+
             #region Options
-            
+
             services.AddSignalR();
             services.AddMediatR(typeof(CreateLessonCommand).GetTypeInfo().Assembly);
             services.AddMediatR(Assembly.GetExecutingAssembly());
@@ -77,18 +70,15 @@ namespace Students.Presentation
                 options.AddConsumer<EventConsumer>();
                 options.UsingRabbitMq((ctx, cfg) =>
                 {
-                    cfg.ReceiveEndpoint("event-listener", e =>
-                    {
-                        e.ConfigureConsumer<EventConsumer>(ctx);
-                    });
+                    cfg.ReceiveEndpoint("event-listener", e => { e.ConfigureConsumer<EventConsumer>(ctx); });
                 });
             });
             services.AddMassTransitHostedService();
-            
+
             #endregion
-            
+
             #region DI
-            
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<ILessonQueries, LessonQueries>();
@@ -104,7 +94,6 @@ namespace Students.Presentation
             services.AddTransient<ISchoolCommands, SchoolCommands>();
 
             #endregion
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -113,13 +102,9 @@ namespace Students.Presentation
             app.UseSwagger();
 
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
             else
-            {
                 app.UseHsts();
-            }
 
             app.UseStaticFiles();
             app.UseHttpsRedirection();
@@ -129,9 +114,8 @@ namespace Students.Presentation
                 endpoints.MapRazorPages();
                 endpoints.MapHub<UsersListHub>("/usersListHub");
             });
-            
-            
-            
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -140,10 +124,6 @@ namespace Students.Presentation
             });
 
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json0", "Student Api"); });
-          
         }
-
-
-      
     }
 }

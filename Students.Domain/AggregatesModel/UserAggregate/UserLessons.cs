@@ -7,19 +7,17 @@ namespace Students.Domain.AggregatesModel.UserAggregate
     {
         #region Constructor
 
-        public UserLessons(int userId, int lessonId) 
+        public UserLessons(int userId, int lessonId)
         {
-            _userId = userId;
-            _lessonId = lessonId;
+            UserId = userId;
+            LessonId = lessonId;
         }
 
         #endregion
 
-        public int UserId => _userId;
-        private int _userId;
+        public int UserId { get; }
 
-        public int LessonId => _lessonId;
-        private int _lessonId;
+        public int LessonId { get; }
 
         #region Relations
 

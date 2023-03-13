@@ -17,10 +17,9 @@ namespace Students.Application.Users.Queries.GetUser
 
         public async Task<GetUserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
-
             User user = await _userQueries.GetUserByIdAsync(request.UserId);
 
-            return new GetUserDto()
+            return new GetUserDto
             {
                 UserId = user.Id,
                 UserName = user.UserName

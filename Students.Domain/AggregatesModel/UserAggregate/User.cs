@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Students.Domain.AggregatesModel.LessonAggregate;
-using Students.Domain.AggregatesModel.RoleAggregate;
 using Students.Domain.AggregatesModel.SchoolAggregate;
 using Students.Domain.Common;
 
@@ -12,23 +9,19 @@ namespace Students.Domain.AggregatesModel.UserAggregate
     {
         #region Contrustor
 
-        public User( string userName, int? classId) 
+        public User(string userName, int? classId)
         {
-            
-            
-
-            UserName = !String.IsNullOrEmpty(userName) ? userName : throw new ArgumentNullException(userName);
+            UserName = !string.IsNullOrEmpty(userName) ? userName : throw new ArgumentNullException(userName);
 
             if (classId != null)
-                _classId = classId;
+                ClassId = classId;
         }
 
         #endregion
-        
+
         public string UserName { get; private set; }
 
-        public int? ClassId => _classId;
-        private int? _classId;
+        public int? ClassId { get; }
 
         #region Relations
 
@@ -57,7 +50,7 @@ namespace Students.Domain.AggregatesModel.UserAggregate
             user.UserName = newUserName;
             return user;
         }
-        
+
         #endregion
     }
 }

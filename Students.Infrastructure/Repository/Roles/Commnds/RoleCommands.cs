@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Students.Domain.AggregatesModel.RoleAggregate;
 using Students.Infrastructure.Persistence.DBContext;
@@ -28,8 +27,8 @@ namespace Students.Infrastructure.Repository.Roles.Commnds
 
         public async Task UpdateRoleAsync(int roleId, string roleTitle)
         {
-            Role role =await _context.Roles.FirstAsync(r=>r.Id == roleId);
-            role = role.updateRoleTitle(role,roleTitle);
+            Role role = await _context.Roles.FirstAsync(r => r.Id == roleId);
+            role = role.updateRoleTitle(role, roleTitle);
             _context.Roles.Update(role);
         }
     }

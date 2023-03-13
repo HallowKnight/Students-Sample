@@ -6,7 +6,7 @@ using Students.Domain.AggregatesModel.RoleAggregate;
 
 namespace Students.Application.Roles.Queries.GetUserRoles
 {
-    public class GetUserRolesQueryHandler : IRequestHandler<GetUserRolesQuery,List<GetUserRolesDto>>
+    public class GetUserRolesQueryHandler : IRequestHandler<GetUserRolesQuery, List<GetUserRolesDto>>
     {
         private readonly IRoleQueries _roleQueries;
 
@@ -14,7 +14,7 @@ namespace Students.Application.Roles.Queries.GetUserRoles
         {
             _roleQueries = roleQueries;
         }
-        
+
         public async Task<List<GetUserRolesDto>> Handle(GetUserRolesQuery request, CancellationToken cancellationToken)
         {
             List<Role> userRoles = await _roleQueries.GetUserRolesAsync(request.UserId);
@@ -22,13 +22,11 @@ namespace Students.Application.Roles.Queries.GetUserRoles
             List<GetUserRolesDto> userRolesDtos = new List<GetUserRolesDto>();
 
             foreach (Role role in userRoles)
-            {
-                userRolesDtos.Add(new GetUserRolesDto()
+                userRolesDtos.Add(new GetUserRolesDto
                 {
                     RoleId = role.Id,
                     RoleTitle = role.RoleTitle
                 });
-            }
 
             return userRolesDtos;
         }

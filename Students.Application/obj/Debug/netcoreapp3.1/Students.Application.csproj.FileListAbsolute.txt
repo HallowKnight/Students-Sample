@@ -34,3 +34,5 @@ C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Appli
 C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.csproj.CopyComplete
 C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.dll
 C:\Projects\Students\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.pdb
+D:\Temp\Students-Sample\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.dll
+D:\Temp\Students-Sample\Students.Application\obj\Debug\netcoreapp3.1\Students.Application.pdb

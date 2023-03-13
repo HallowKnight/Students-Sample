@@ -11,19 +11,19 @@ namespace Students.Infrastructure.EntityConfiguratios
             userRolesConfigurations.ToTable("UserRoles");
             userRolesConfigurations.HasKey(ur => ur.Id);
             userRolesConfigurations.Property(ur => ur.Id);
-            
+
             // Relation to Users
             userRolesConfigurations
-                .HasOne<User>(ur => ur.User)
+                .HasOne(ur => ur.User)
                 .WithMany(u => u.UserRoles)
-                .HasForeignKey(ur=>ur.UserId);
+                .HasForeignKey(ur => ur.UserId);
 
-            
+
             //Relation to Roles
             userRolesConfigurations
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)
-                .HasForeignKey(ur=>ur.RoleId);
+                .HasForeignKey(ur => ur.RoleId);
         }
     }
 }

@@ -5,7 +5,7 @@ using Students.Domain.AggregatesModel.RoleAggregate;
 
 namespace Students.Application.Roles.Commands.CreateRole
 {
-    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand,int>
+    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, int>
     {
         private readonly IRoleCommands _roleCommands;
 
@@ -13,12 +13,12 @@ namespace Students.Application.Roles.Commands.CreateRole
         {
             _roleCommands = roleCommands;
         }
-        
+
         public async Task<int> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {
             await _roleCommands.AddRoleAsync(request.RoleTitle);
-            request.transctionCount++;
-            return request.transctionCount;
+            request.TransactionCount++;
+            return request.TransactionCount;
         }
     }
 }

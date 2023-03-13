@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Students.Domain;
 using Students.Domain.AggregatesModel.LessonAggregate;
 using Students.Domain.AggregatesModel.RoleAggregate;
 using Students.Domain.AggregatesModel.SchoolAggregate;
@@ -15,10 +11,9 @@ namespace Students.Infrastructure.Persistence.DBContext
     {
         public StudentsDbContext(DbContextOptions<StudentsDbContext> options) : base(options)
         {
-
         }
-        
-        
+
+
         public DbSet<User> Users { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Role> Roles { get; set; }

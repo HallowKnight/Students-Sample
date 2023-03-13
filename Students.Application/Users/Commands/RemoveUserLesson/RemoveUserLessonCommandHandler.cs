@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
-using Students.Domain.Common;
 
 namespace Students.Application.Users.Commands.RemoveUserLesson
 {
@@ -19,9 +18,9 @@ namespace Students.Application.Users.Commands.RemoveUserLesson
         {
             await _userCommands.RemoveLessonFromUserAsync(request.UserId, request.LessonId);
 
-            request.transctionCount += 1;
+            request.TransactionCount += 1;
 
-            return request.transctionCount;
+            return request.TransactionCount;
         }
     }
 }
