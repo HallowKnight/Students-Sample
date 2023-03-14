@@ -1,0 +1,17 @@
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Application.deps.json
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Application.dll
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Application.pdb
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Domain.dll
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Infrastructure.dll
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Domain.pdb
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\bin\Debug\net6.0\Students.Infrastructure.pdb
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.csproj.AssemblyReference.cache
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.AssemblyInfoInputs.cache
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.AssemblyInfo.cs
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.csproj.CopyComplete
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.dll
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\refint\Students.Application.dll
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\Students.Application.pdb
+C:\Users\LENOVO\RiderProjects\Students-Sample\Students.Application\obj\Debug\net6.0\ref\Students.Application.dll

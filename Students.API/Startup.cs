@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Students.Application.Lessons.Commands.CreateLesson;
 using Students.Domain.AggregatesModel.LessonAggregate;
@@ -63,42 +64,18 @@ namespace Students.Presentation
             #region Options
 
             services.AddSignalR();
-            services.AddMediatR(typeof(CreateLessonCommand).GetTypeInfo().Assembly);
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(cfg=>cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
             services.AddSwaggerGen();
-            services.AddMassTransit(options =>
-            {
-                options.AddConsumer<EventConsumer>();
-                options.UsingRabbitMq((ctx, cfg) =>
-                {
-                    cfg.ReceiveEndpoint("event-listener", e => { e.ConfigureConsumer<EventConsumer>(ctx); });
-                });
-            });
-            services.AddMassTransitHostedService();
-
+            //Todo: Add MassTransit
             #endregion
 
             #region DI
-
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-
-            services.AddTransient<ILessonQueries, LessonQueries>();
-            services.AddTransient<ILessonCommands, LessonCommands>();
-
-            services.AddTransient<IUserQueries, UserQueries>();
-            services.AddTransient<IUserCommands, UserCommands>();
-
-            services.AddTransient<IRoleCommands, RoleCommands>();
-            services.AddTransient<IRoleQueries, RoleQueries>();
-
-            services.AddTransient<ISchoolQueries, SchoolQueries>();
-            services.AddTransient<ISchoolCommands, SchoolCommands>();
-
             #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseSwagger();
 

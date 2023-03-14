@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Dev03-PC\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Dev03-PC\\.nuget\\packages",
-      "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages"
+      "C:\\Users\\LENOVO\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\LENOVO\\.nuget\\packages"
     ]
   }
 }

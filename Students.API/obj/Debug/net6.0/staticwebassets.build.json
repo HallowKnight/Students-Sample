@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "WJVt6B15AP8UVAkLnVtl+ibU5CcJgU3a8bQ7QHmTf3c=",
+  "Source": "Students.Presentation",
+  "BasePath": "_content/Students.Presentation",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Students.Presentation\\wwwroot",
+      "Source": "Students.Presentation",
+      "ContentRoot": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\",
+      "BasePath": "_content/Students.Presentation",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\css\\bootstrap.css",
+      "SourceId": "Students.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\",
+      "BasePath": "_content/Students.Presentation",
+      "RelativePath": "css/bootstrap.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap.css"
+    },
+    {
+      "Identity": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\js\\bootstrap.js",
+      "SourceId": "Students.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\",
+      "BasePath": "_content/Students.Presentation",
+      "RelativePath": "js/bootstrap.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\bootstrap.js"
+    },
+    {
+      "Identity": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\js\\lib\\signalr.js",
+      "SourceId": "Students.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\",
+      "BasePath": "_content/Students.Presentation",
+      "RelativePath": "js/lib/signalr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\lib\\signalr.js"
+    },
+    {
+      "Identity": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\js\\lib\\signalr.min.js",
+      "SourceId": "Students.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\RiderProjects\\Students-Sample\\Students.API\\wwwroot\\",
+      "BasePath": "_content/Students.Presentation",
+      "RelativePath": "js/lib/signalr.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\lib\\signalr.min.js"
+    }
+  ]
+}
