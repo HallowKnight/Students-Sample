@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using MediatR;
 
-namespace Students.Application.Lessons.Queries.GetAllLessons
+namespace Students.Application.Lessons.Queries.GetAllLessons;
+
+public class GetAllLessonsQuery : IRequest<List<GetAllLessonsDto>>
 {
-    public class GetAllLessonsQuery : IRequest<List<GetAllLessonsDto>>
-    {
-    }
 }

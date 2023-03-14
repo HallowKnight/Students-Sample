@@ -1,8 +1,7 @@
-﻿namespace Students.Application.Roles.Queries.GetRoleUsers
+﻿namespace Students.Application.Roles.Queries.GetRoleUsers;
+
+public class GetRoleUsersDto
 {
-    public class GetRoleUsersDto
-    {
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-    }
+    public int UserId { get; set; }
+    public string UserName { get; set; }
 }

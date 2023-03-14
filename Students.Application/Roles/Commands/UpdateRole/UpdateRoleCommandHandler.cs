@@ -3,22 +3,21 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.RoleAggregate;
 
-namespace Students.Application.Roles.Commands.UpdateRole
+namespace Students.Application.Roles.Commands.UpdateRole;
+
+public class UpdateRoleCommandHandler : IRequestHandler<UpdateRoleCommand, int>
 {
-    public class UpdateRoleCommandHandler : IRequestHandler<UpdateRoleCommand, int>
+    private readonly IRoleCommands _roleCommands;
+
+    public UpdateRoleCommandHandler(IRoleCommands roleCommands)
     {
-        private readonly IRoleCommands _roleCommands;
+        _roleCommands = roleCommands;
+    }
 
-        public UpdateRoleCommandHandler(IRoleCommands roleCommands)
-        {
-            _roleCommands = roleCommands;
-        }
-
-        public async Task<int> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
-        {
-            await _roleCommands.UpdateRoleAsync(request.RoleId, request.NewTitle);
-            request.TransactionCount++;
-            return request.TransactionCount;
-        }
+    public async Task<int> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
+    {
+        await _roleCommands.UpdateRoleAsync(request.RoleId, request.NewTitle);
+        request.TransactionCount++;
+        return request.TransactionCount;
     }
 }

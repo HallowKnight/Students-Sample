@@ -4,31 +4,30 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.SchoolAggregate;
 
-namespace Students.Application.Schools.Queries.GetAllSchools
+namespace Students.Application.Schools.Queries.GetAllSchools;
+
+public class GetAllSchoolsQueryHandler : IRequestHandler<GetAllSchoolsQuery, List<GetAllSchoolsDto>>
 {
-    public class GetAllSchoolsQueryHandler : IRequestHandler<GetAllSchoolsQuery, List<GetAllSchoolsDto>>
+    private readonly ISchoolQueries _schoolQueries;
+
+    public GetAllSchoolsQueryHandler(ISchoolQueries schoolQueries)
     {
-        private readonly ISchoolQueries _schoolQueries;
+        _schoolQueries = schoolQueries;
+    }
 
-        public GetAllSchoolsQueryHandler(ISchoolQueries schoolQueries)
-        {
-            _schoolQueries = schoolQueries;
-        }
+    public async Task<List<GetAllSchoolsDto>> Handle(GetAllSchoolsQuery request,
+        CancellationToken cancellationToken)
+    {
+        var schools = await _schoolQueries.GetAllSchoolsAsync();
+        var schoolsDtos = new List<GetAllSchoolsDto>();
 
-        public async Task<List<GetAllSchoolsDto>> Handle(GetAllSchoolsQuery request,
-            CancellationToken cancellationToken)
-        {
-            List<School> schools = await _schoolQueries.GetAllSchoolsAsync();
-            List<GetAllSchoolsDto> schoolsDtos = new List<GetAllSchoolsDto>();
+        foreach (var school in schools)
+            schoolsDtos.Add(new GetAllSchoolsDto
+            {
+                SchoolId = school.Id,
+                SchoolTitle = school.SchoolTitle
+            });
 
-            foreach (School school in schools)
-                schoolsDtos.Add(new GetAllSchoolsDto
-                {
-                    SchoolId = school.Id,
-                    SchoolTitle = school.SchoolTitle
-                });
-
-            return schoolsDtos;
-        }
+        return schoolsDtos;
     }
 }

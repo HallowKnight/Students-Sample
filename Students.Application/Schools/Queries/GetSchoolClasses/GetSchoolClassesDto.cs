@@ -1,9 +1,8 @@
-﻿namespace Students.Application.Schools.Queries.GetSchoolClasses
-{
-    public class GetSchoolClassesDto
-    {
-        public int ClassId { get; set; }
+﻿namespace Students.Application.Schools.Queries.GetSchoolClasses;
 
-        public string ClassTitle { get; set; }
-    }
+public class GetSchoolClassesDto
+{
+    public int ClassId { get; set; }
+
+    public string ClassTitle { get; set; }
 }

@@ -3,27 +3,26 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
 
-namespace Students.Application.Users.Queries.GetUser
+namespace Students.Application.Users.Queries.GetUser;
+
+public class GetUserQueryHandler : IRequestHandler<GetUserQuery, GetUserDto>
 {
-    public class GetUserQueryHandler : IRequestHandler<GetUserQuery, GetUserDto>
+    private readonly IUserQueries _userQueries;
+
+    public GetUserQueryHandler(IUserQueries userQueries)
     {
-        private readonly IUserQueries _userQueries;
+        _userQueries = userQueries;
+    }
 
-        public GetUserQueryHandler(IUserQueries userQueries)
+
+    public async Task<GetUserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
+    {
+        var user = await _userQueries.GetUserByIdAsync(request.UserId);
+
+        return new GetUserDto
         {
-            _userQueries = userQueries;
-        }
-
-
-        public async Task<GetUserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        {
-            User user = await _userQueries.GetUserByIdAsync(request.UserId);
-
-            return new GetUserDto
-            {
-                UserId = user.Id,
-                UserName = user.UserName
-            };
-        }
+            UserId = user.Id,
+            UserName = user.UserName
+        };
     }
 }

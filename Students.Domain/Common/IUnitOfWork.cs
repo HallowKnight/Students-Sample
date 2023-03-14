@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace Students.Domain.Common
+namespace Students.Domain.Common;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        Task<int> SaveChangesAsync();
-        int SaveChanges();
-    }
+    Task<int> SaveChangesAsync();
+    int SaveChanges();
 }

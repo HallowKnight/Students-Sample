@@ -1,19 +1,18 @@
 ﻿using System.Threading.Tasks;
 
-namespace Students.Domain.AggregatesModel.SchoolAggregate
+namespace Students.Domain.AggregatesModel.SchoolAggregate;
+
+public interface ISchoolCommands
 {
-    public interface ISchoolCommands
-    {
-        Task CreateSchoolAsync(string schoolTitle);
+    Task CreateSchoolAsync(string schoolTitle);
 
-        Task DeleteSchoolAsync(int schoolId);
+    Task DeleteSchoolAsync(int schoolId);
 
-        Task UpdateSchoolAsync(int schoolId, string schoolTitle);
+    Task UpdateSchoolAsync(int schoolId, string schoolTitle);
 
-        Task CreateClassAsync(string classTitle, int schoolId);
+    Task CreateClassAsync(string classTitle, int schoolId);
 
-        Task UpdateClassAsync(int classId, int schoolId, string classTitle);
+    Task UpdateClassAsync(int classId, int schoolId, string classTitle);
 
-        Task DeleteClassAsync(int classId);
-    }
+    Task DeleteClassAsync(int classId);
 }

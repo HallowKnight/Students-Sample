@@ -4,25 +4,24 @@ using MediatR;
 using Students.Domain.AggregatesModel.LessonAggregate;
 using Students.Domain.Common;
 
-namespace Students.Application.Lessons.Commands.CreateLesson
+namespace Students.Application.Lessons.Commands.CreateLesson;
+
+public class CreateLessonCommandHandler : IRequestHandler<CreateLessonCommand, int>
 {
-    public class CreateLessonCommandHandler : IRequestHandler<CreateLessonCommand, int>
+    private readonly ILessonCommands _lessonCommands;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public CreateLessonCommandHandler(ILessonCommands lessonCommands, IUnitOfWork unitOfWork)
     {
-        private readonly ILessonCommands _lessonCommands;
-        private readonly IUnitOfWork _unitOfWork;
-
-        public CreateLessonCommandHandler(ILessonCommands lessonCommands, IUnitOfWork unitOfWork)
-        {
-            _lessonCommands = lessonCommands;
-            _unitOfWork = unitOfWork;
-        }
+        _lessonCommands = lessonCommands;
+        _unitOfWork = unitOfWork;
+    }
 
 
-        public async Task<int> Handle(CreateLessonCommand request, CancellationToken cancellationToken)
-        {
-            await _lessonCommands.AddLessonAsync(request.LessonTitle);
-            request.TransactionCount += 1;
-            return request.TransactionCount;
-        }
+    public async Task<int> Handle(CreateLessonCommand request, CancellationToken cancellationToken)
+    {
+        await _lessonCommands.AddLessonAsync(request.LessonTitle);
+        request.TransactionCount += 1;
+        return request.TransactionCount;
     }
 }

@@ -1,9 +1,8 @@
-﻿namespace Students.Application.Users.Queries.GetUser
-{
-    public class GetUserDto
-    {
-        public int UserId { get; set; }
+﻿namespace Students.Application.Users.Queries.GetUser;
 
-        public string UserName { get; set; }
-    }
+public class GetUserDto
+{
+    public int UserId { get; set; }
+
+    public string UserName { get; set; }
 }

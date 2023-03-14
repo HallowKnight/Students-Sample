@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace Students.Domain.Common
-{
-    public interface IHasDomainEvent
-    {
-        public List<DomainEvent> DomainEvents { get; set; }
-    }
+namespace Students.Domain.Common;
 
-    public class DomainEvent
-    {
-        public int Id { get; set; }
-    }
+public interface IHasDomainEvent
+{
+    public List<DomainEvent> DomainEvents { get; set; }
+}
+
+public class DomainEvent
+{
+    public int Id { get; set; }
 }

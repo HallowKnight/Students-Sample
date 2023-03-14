@@ -3,27 +3,26 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.RoleAggregate;
 
-namespace Students.Application.Roles.Queries.GetRole
+namespace Students.Application.Roles.Queries.GetRole;
+
+public class GetRoleQueryHandler : IRequestHandler<GetRoleQuery, GetRoleDto>
 {
-    public class GetRoleQueryHandler : IRequestHandler<GetRoleQuery, GetRoleDto>
+    private readonly IRoleQueries _roleQueries;
+
+    public GetRoleQueryHandler(IRoleQueries roleQueries)
     {
-        private readonly IRoleQueries _roleQueries;
+        _roleQueries = roleQueries;
+    }
 
-        public GetRoleQueryHandler(IRoleQueries roleQueries)
+    public async Task<GetRoleDto> Handle(GetRoleQuery request, CancellationToken cancellationToken)
+    {
+        var role = await _roleQueries.GetRoleByIdAsync(request.RoleId);
+        var roleDto = new GetRoleDto
         {
-            _roleQueries = roleQueries;
-        }
+            RoleId = role.Id,
+            RoleTitlle = role.RoleTitle
+        };
 
-        public async Task<GetRoleDto> Handle(GetRoleQuery request, CancellationToken cancellationToken)
-        {
-            Role role = await _roleQueries.GetRoleByIdAsync(request.RoleId);
-            GetRoleDto roleDto = new GetRoleDto
-            {
-                RoleId = role.Id,
-                RoleTitlle = role.RoleTitle
-            };
-
-            return roleDto;
-        }
+        return roleDto;
     }
 }

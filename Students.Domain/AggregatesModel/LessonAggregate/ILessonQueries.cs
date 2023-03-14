@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Students.Domain.AggregatesModel.LessonAggregate
+namespace Students.Domain.AggregatesModel.LessonAggregate;
+
+public interface ILessonQueries
 {
-    public interface ILessonQueries
-    {
-        Task<List<Lesson>> GetAllLessonsAsync();
+    Task<List<Lesson>> GetAllLessonsAsync();
 
-        Task<Lesson> GetLessonByIdAsync(int lessonId);
+    Task<Lesson> GetLessonByIdAsync(int lessonId);
 
 
-        Task<List<string>> GetUserLessonsAsync(int userId);
-    }
+    Task<List<string>> GetUserLessonsAsync(int userId);
 }

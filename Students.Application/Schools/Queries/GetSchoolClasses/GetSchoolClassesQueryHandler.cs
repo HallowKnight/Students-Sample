@@ -4,32 +4,31 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.SchoolAggregate;
 
-namespace Students.Application.Schools.Queries.GetSchoolClasses
+namespace Students.Application.Schools.Queries.GetSchoolClasses;
+
+public class GetSchoolClassesQueryHandler : IRequestHandler<GetSchoolClassesQuery, List<GetSchoolClassesDto>>
 {
-    public class GetSchoolClassesQueryHandler : IRequestHandler<GetSchoolClassesQuery, List<GetSchoolClassesDto>>
+    private readonly ISchoolQueries _schoolQueries;
+
+    public GetSchoolClassesQueryHandler(ISchoolQueries schoolQueries)
     {
-        private readonly ISchoolQueries _schoolQueries;
+        _schoolQueries = schoolQueries;
+    }
 
-        public GetSchoolClassesQueryHandler(ISchoolQueries schoolQueries)
-        {
-            _schoolQueries = schoolQueries;
-        }
+    public async Task<List<GetSchoolClassesDto>> Handle(GetSchoolClassesQuery request,
+        CancellationToken cancellationToken)
+    {
+        var classes = await _schoolQueries.GetSchoolClassesAsync(request.SchoolId);
 
-        public async Task<List<GetSchoolClassesDto>> Handle(GetSchoolClassesQuery request,
-            CancellationToken cancellationToken)
-        {
-            List<Class> classes = await _schoolQueries.GetSchoolClassesAsync(request.SchoolId);
+        var classesDtos = new List<GetSchoolClassesDto>();
 
-            List<GetSchoolClassesDto> classesDtos = new List<GetSchoolClassesDto>();
+        foreach (var currentClass in classes)
+            classesDtos.Add(new GetSchoolClassesDto
+            {
+                ClassId = currentClass.Id,
+                ClassTitle = currentClass.ClassTitle
+            });
 
-            foreach (Class currentClass in classes)
-                classesDtos.Add(new GetSchoolClassesDto
-                {
-                    ClassId = currentClass.Id,
-                    ClassTitle = currentClass.ClassTitle
-                });
-
-            return classesDtos;
-        }
+        return classesDtos;
     }
 }

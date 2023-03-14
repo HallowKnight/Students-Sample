@@ -3,22 +3,21 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.RoleAggregate;
 
-namespace Students.Application.Roles.Commands.CreateRole
+namespace Students.Application.Roles.Commands.CreateRole;
+
+public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, int>
 {
-    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, int>
+    private readonly IRoleCommands _roleCommands;
+
+    public CreateRoleCommandHandler(IRoleCommands roleCommands)
     {
-        private readonly IRoleCommands _roleCommands;
+        _roleCommands = roleCommands;
+    }
 
-        public CreateRoleCommandHandler(IRoleCommands roleCommands)
-        {
-            _roleCommands = roleCommands;
-        }
-
-        public async Task<int> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
-        {
-            await _roleCommands.AddRoleAsync(request.RoleTitle);
-            request.TransactionCount++;
-            return request.TransactionCount;
-        }
+    public async Task<int> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
+    {
+        await _roleCommands.AddRoleAsync(request.RoleTitle);
+        request.TransactionCount++;
+        return request.TransactionCount;
     }
 }

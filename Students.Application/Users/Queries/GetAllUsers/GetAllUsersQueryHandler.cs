@@ -5,24 +5,23 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.UserAggregate;
 
-namespace Students.Application.Users.Queries.GetAllUsers
+namespace Students.Application.Users.Queries.GetAllUsers;
+
+public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, List<GetAllUsersDto>>
 {
-    public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, List<GetAllUsersDto>>
+    private readonly IUserQueries _userQueries;
+
+    public GetAllUsersQueryHandler(IUserQueries userQueries)
     {
-        private readonly IUserQueries _userQueries;
+        _userQueries = userQueries;
+    }
 
-        public GetAllUsersQueryHandler(IUserQueries userQueries)
+    public async Task<List<GetAllUsersDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
+    {
+        return (await _userQueries.GetAllUsersAsync()).Select(user => new GetAllUsersDto
         {
-            _userQueries = userQueries;
-        }
-
-        public async Task<List<GetAllUsersDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
-        {
-            return (await _userQueries.GetAllUsersAsync()).Select(user => new GetAllUsersDto
-            {
-                UserId = user.Id,
-                UserName = user.UserName
-            }).ToList();
-        }
+            UserId = user.Id,
+            UserName = user.UserName
+        }).ToList();
     }
 }

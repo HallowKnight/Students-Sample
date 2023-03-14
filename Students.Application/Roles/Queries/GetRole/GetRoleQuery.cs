@@ -1,9 +1,8 @@
 ﻿using MediatR;
 
-namespace Students.Application.Roles.Queries.GetRole
+namespace Students.Application.Roles.Queries.GetRole;
+
+public class GetRoleQuery : IRequest<GetRoleDto>
 {
-    public class GetRoleQuery : IRequest<GetRoleDto>
-    {
-        public int RoleId { get; set; }
-    }
+    public int RoleId { get; set; }
 }

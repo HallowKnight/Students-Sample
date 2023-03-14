@@ -3,23 +3,22 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.SchoolAggregate;
 
-namespace Students.Application.Schools.Commands.DeleteClass
+namespace Students.Application.Schools.Commands.DeleteClass;
+
+public class DeleteClassCommandHandler : IRequestHandler<DeteleClassCommand, int>
 {
-    public class DeleteClassCommandHandler : IRequestHandler<DeteleClassCommand, int>
+    private readonly ISchoolCommands _schoolCommands;
+
+    public DeleteClassCommandHandler(ISchoolCommands schoolCommands)
     {
-        private readonly ISchoolCommands _schoolCommands;
+        _schoolCommands = schoolCommands;
+    }
 
-        public DeleteClassCommandHandler(ISchoolCommands schoolCommands)
-        {
-            _schoolCommands = schoolCommands;
-        }
+    public async Task<int> Handle(DeteleClassCommand request, CancellationToken cancellationToken)
+    {
+        await _schoolCommands.DeleteClassAsync(request.ClassId);
+        request.TransactionCount++;
 
-        public async Task<int> Handle(DeteleClassCommand request, CancellationToken cancellationToken)
-        {
-            await _schoolCommands.DeleteClassAsync(request.ClassId);
-            request.TransactionCount++;
-
-            return request.TransactionCount;
-        }
+        return request.TransactionCount;
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace Students.Domain.Contracts
+﻿namespace Students.Domain.Contracts;
+
+// Used For MassTransit to Start Consumer
+public interface UsersChanged
 {
-    // Used For MassTransit to Start Consumer
-    public interface UsersChanged
-    {
-    }
 }

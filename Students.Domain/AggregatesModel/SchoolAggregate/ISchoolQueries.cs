@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Students.Domain.AggregatesModel.SchoolAggregate
+namespace Students.Domain.AggregatesModel.SchoolAggregate;
+
+public interface ISchoolQueries
 {
-    public interface ISchoolQueries
-    {
-        Task<List<School>> GetAllSchoolsAsync();
+    Task<List<School>> GetAllSchoolsAsync();
 
-        Task<School> GetSchoolByIdAsync(int schoolId);
+    Task<School> GetSchoolByIdAsync(int schoolId);
 
-        Task<Class> GetClassByIdAsync(int classId);
+    Task<Class> GetClassByIdAsync(int classId);
 
-        Task<List<Class>> GetSchoolClassesAsync(int schoolId);
+    Task<List<Class>> GetSchoolClassesAsync(int schoolId);
 
-        Task<List<Class>> GetAllClassesAsync();
-    }
+    Task<List<Class>> GetAllClassesAsync();
 }

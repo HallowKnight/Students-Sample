@@ -1,13 +1,12 @@
 ﻿using MediatR;
 using Students.Application.Common.CommitTag;
 
-namespace Students.Application.Users.Commands.AddUserRole
-{
-    public class AddUserRoleCommand : IRequest<int>, ICommitable
-    {
-        public int UserId { get; set; }
+namespace Students.Application.Users.Commands.AddUserRole;
 
-        public int RoleId { get; set; }
-        public int TransactionCount { get; set; }
-    }
+public class AddUserRoleCommand : IRequest<int>, ICommitable
+{
+    public int UserId { get; set; }
+
+    public int RoleId { get; set; }
+    public int TransactionCount { get; set; }
 }

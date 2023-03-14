@@ -1,10 +1,9 @@
-﻿namespace Students.Application.Common.CommitTag
+﻿namespace Students.Application.Common.CommitTag;
+
+/// <summary>
+///     Used to Tag Handlers That Requires to Execute SaveChanges After the Handler Finishes
+/// </summary>
+public interface ICommitable
 {
-    /// <summary>
-    ///     Used to Tag Handlers That Requires to Execute SaveChanges After the Handler Finishes
-    /// </summary>
-    public interface ICommitable
-    {
-        int TransactionCount { get; set; }
-    }
+    int TransactionCount { get; set; }
 }

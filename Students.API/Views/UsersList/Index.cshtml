@@ -1,5 +1,4 @@
-﻿@using Students.Application.Users.Queries.GetAllUsers
-@model List<Students.Application.Users.Queries.GetAllUsers.GetAllUsersDto>
+﻿@model List<Students.Application.Users.Queries.GetAllUsers.GetAllUsersDto>
 
 
 <html>
@@ -20,7 +19,7 @@
     </tr>
     </thead>
     <tbody id="tableBody">
-    @foreach (GetAllUsersDto user in Model)
+    @foreach (var user in Model)
     {
         <tr>
             <td>@user.UserId</td>

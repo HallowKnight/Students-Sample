@@ -4,30 +4,29 @@ using MediatR;
 using Students.Domain.AggregatesModel.LessonAggregate;
 using Students.Domain.AggregatesModel.UserAggregate;
 
-namespace Students.Application.Lessons.Queries.GetUserLessons
+namespace Students.Application.Lessons.Queries.GetUserLessons;
+
+public class GetUserLessonsQueryHandler : IRequestHandler<GetUserLessonsQuery, GetUserLessonsDto>
 {
-    public class GetUserLessonsQueryHandler : IRequestHandler<GetUserLessonsQuery, GetUserLessonsDto>
+    private readonly ILessonQueries _lessonQueries;
+    private readonly IUserQueries _studentQueries;
+
+    public GetUserLessonsQueryHandler(ILessonQueries lessonQueries, IUserQueries studentQueries)
     {
-        private readonly ILessonQueries _lessonQueries;
-        private readonly IUserQueries _studentQueries;
+        _lessonQueries = lessonQueries;
+        _studentQueries = studentQueries;
+    }
 
-        public GetUserLessonsQueryHandler(ILessonQueries lessonQueries, IUserQueries studentQueries)
+    public async Task<GetUserLessonsDto> Handle(GetUserLessonsQuery request, CancellationToken cancellationToken)
+    {
+        var user = await _studentQueries.GetUserByIdAsync(request.UserId);
+
+        var lessonsDto = new GetUserLessonsDto
         {
-            _lessonQueries = lessonQueries;
-            _studentQueries = studentQueries;
-        }
-
-        public async Task<GetUserLessonsDto> Handle(GetUserLessonsQuery request, CancellationToken cancellationToken)
-        {
-            User user = await _studentQueries.GetUserByIdAsync(request.UserId);
-
-            GetUserLessonsDto lessonsDto = new GetUserLessonsDto
-            {
-                UserId = user.Id,
-                UserName = user.UserName,
-                UserLessons = await _lessonQueries.GetUserLessonsAsync(request.UserId)
-            };
-            return lessonsDto;
-        }
+            UserId = user.Id,
+            UserName = user.UserName,
+            UserLessons = await _lessonQueries.GetUserLessonsAsync(request.UserId)
+        };
+        return lessonsDto;
     }
 }

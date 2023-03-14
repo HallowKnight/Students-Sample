@@ -1,9 +1,8 @@
-﻿namespace Students.Application.Lessons.Queries.GetAllLessons
-{
-    public class GetAllLessonsDto
-    {
-        public int LessonId { get; set; }
+﻿namespace Students.Application.Lessons.Queries.GetAllLessons;
 
-        public string LessonTitle { get; set; }
-    }
+public class GetAllLessonsDto
+{
+    public int LessonId { get; set; }
+
+    public string LessonTitle { get; set; }
 }

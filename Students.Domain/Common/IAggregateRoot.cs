@@ -1,9 +1,8 @@
-﻿namespace Students.Domain.Common
+﻿namespace Students.Domain.Common;
+
+/// <summary>
+///     USed to Tag Aggregate Root Classes
+/// </summary>
+public interface IAggregateRoot
 {
-    /// <summary>
-    ///     USed to Tag Aggregate Root Classes
-    /// </summary>
-    public interface IAggregateRoot
-    {
-    }
 }

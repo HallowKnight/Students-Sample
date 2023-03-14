@@ -5,23 +5,22 @@ using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.LessonAggregate;
 
-namespace Students.Application.Lessons.Queries.GetAllLessons
+namespace Students.Application.Lessons.Queries.GetAllLessons;
+
+public class GetALlLessonsQueryHandler : IRequestHandler<GetAllLessonsQuery, List<GetAllLessonsDto>>
 {
-    public class GetALlLessonsQueryHandler : IRequestHandler<GetAllLessonsQuery, List<GetAllLessonsDto>>
+    private readonly ILessonQueries _lessonQueries;
+
+    public GetALlLessonsQueryHandler(ILessonQueries lessonQueries)
     {
-        private readonly ILessonQueries _lessonQueries;
+        _lessonQueries = lessonQueries;
+    }
 
-        public GetALlLessonsQueryHandler(ILessonQueries lessonQueries)
-        {
-            _lessonQueries = lessonQueries;
-        }
-
-        public async Task<List<GetAllLessonsDto>> Handle(GetAllLessonsQuery request,
-            CancellationToken cancellationToken)
-        {
-            List<Lesson> lessons = await _lessonQueries.GetAllLessonsAsync();
-            return lessons.Select(lesson => new GetAllLessonsDto
-                { LessonId = lesson.Id, LessonTitle = lesson.LessonTitle }).ToList();
-        }
+    public async Task<List<GetAllLessonsDto>> Handle(GetAllLessonsQuery request,
+        CancellationToken cancellationToken)
+    {
+        var lessons = await _lessonQueries.GetAllLessonsAsync();
+        return lessons.Select(lesson => new GetAllLessonsDto
+            { LessonId = lesson.Id, LessonTitle = lesson.LessonTitle }).ToList();
     }
 }
