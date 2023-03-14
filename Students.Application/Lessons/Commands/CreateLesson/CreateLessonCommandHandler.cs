@@ -2,19 +2,16 @@
 using System.Threading.Tasks;
 using MediatR;
 using Students.Domain.AggregatesModel.LessonAggregate;
-using Students.Domain.Common;
 
 namespace Students.Application.Lessons.Commands.CreateLesson;
 
 public class CreateLessonCommandHandler : IRequestHandler<CreateLessonCommand, int>
 {
     private readonly ILessonCommands _lessonCommands;
-    private readonly IUnitOfWork _unitOfWork;
 
-    public CreateLessonCommandHandler(ILessonCommands lessonCommands, IUnitOfWork unitOfWork)
+    public CreateLessonCommandHandler(ILessonCommands lessonCommands)
     {
         _lessonCommands = lessonCommands;
-        _unitOfWork = unitOfWork;
     }
 
 
