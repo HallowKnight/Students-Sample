@@ -3,7 +3,7 @@ using Students.Application.Common.CommitTag;
 
 namespace Students.Application.Users.Commands.AddUserRole;
 
-public class AddUserRoleCommand : IRequest<int>, ICommitable
+public class AddUserRoleCommand : IRequest<int>, ICommittable
 {
     public int UserId { get; set; }
 

@@ -19,7 +19,7 @@ public class CommitPostProcessor<TRequest, TResponse> : IRequestPostProcessor<TR
 
     public async Task Process(TRequest request, TResponse response, CancellationToken cancellationToken)
     {
-        if (request is ICommitable)
+        if (request is ICommittable)
             try
             {
                 await _unitOfWork.SaveChangesAsync();

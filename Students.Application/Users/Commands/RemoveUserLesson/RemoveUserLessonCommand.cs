@@ -3,7 +3,7 @@ using Students.Application.Common.CommitTag;
 
 namespace Students.Application.Users.Commands.RemoveUserLesson;
 
-public class RemoveUserLessonCommand : IRequest<int>, ICommitable
+public class RemoveUserLessonCommand : IRequest<int>, ICommittable
 {
     public int UserId { get; set; }
 

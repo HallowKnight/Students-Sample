@@ -3,7 +3,7 @@ using Students.Application.Common.CommitTag;
 
 namespace Students.Application.Users.Commands.AddUserLesson;
 
-public class AddUserLessonCommand : IRequest<int>, ICommitable
+public class AddUserLessonCommand : IRequest<int>, ICommittable
 {
     public int UserId { get; set; }
 

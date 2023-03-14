@@ -3,7 +3,7 @@ using Students.Application.Common.CommitTag;
 
 namespace Students.Application.Schools.Commands.CreateClass;
 
-public class CreateClassCommand : IRequest<int>, ICommitable
+public class CreateClassCommand : IRequest<int>, ICommittable
 {
     public string ClassTitle { get; set; }
 
